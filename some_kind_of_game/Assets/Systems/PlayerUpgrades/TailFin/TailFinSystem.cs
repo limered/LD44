@@ -1,4 +1,5 @@
-﻿using SystemBase;
+﻿using System.Collections.Generic;
+using SystemBase;
 using Systems.Control;
 using Systems.Movement;
 using UniRx;
@@ -21,11 +22,8 @@ namespace Systems.PlayerUpgrades.TailFin
                 .Select(playerComponent => playerComponent.GetComponent<FishyMovementComponent>())
                 .Subscribe(movement =>
                     {
-                        movement.AccelerationFactorModifier
-                            .Add(old => new Vector2(old.x + _rotor.AccelerationSummand, old.y));
-
-                        movement.MaxSpeedModifier
-                            .Add(old => new Vector2(old.x + _rotor.MaxSpeedSummand, old.y));
+                        movement.AccelerationFactorModifier.Add(old => new Vector2(old.x + _rotor.AccelerationSummand, old.y));
+                        movement.MaxSpeedModifier.Add(old => new Vector2(old.x + _rotor.MaxSpeedSummand, old.y));
                     }
                 )
                 .AddTo(component);
