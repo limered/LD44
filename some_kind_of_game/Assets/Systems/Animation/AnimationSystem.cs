@@ -55,7 +55,7 @@ namespace Systems.Animation
 
         public override void Register(BlowFishAnimationComponent component)
         {
-
+            component.Context.Start(new BlowFishState.Swimming(component));
         }
 
         public override void Register(BasicToggleAnimationComponent component)
@@ -88,27 +88,33 @@ namespace Systems.Animation
 
             for (var i = 0; i < steps; i++)
             {
+                if (component.CurrentSprite == BasicToggleAnimationComponent.NotAnimating) break;
                 for (var s = 0; s < component.Sprites.Length; s++)
                 {
                     component.Sprites[s].SetActive(component.CurrentSprite == s);
                 }
 
                 yield return new WaitForSeconds(delta);
+                if (component.CurrentSprite == BasicToggleAnimationComponent.NotAnimating) break;
+
                 component.CurrentSprite += component.Reverse ? -1 : 1;
                 component.CurrentSprite = Math.Max(0, component.CurrentSprite);
                 component.CurrentSprite = Math.Min(component.CurrentSprite, steps - 1);
             }
 
-            if (component.EndSprite)
+            if (component.CurrentSprite != BasicToggleAnimationComponent.NotAnimating)
             {
-                for (var s = 0; s < component.Sprites.Length; s++)
+                if (component.EndSprite)
                 {
-                    component.Sprites[s].SetActive(false);
+                    for (var s = 0; s < component.Sprites.Length; s++)
+                    {
+                        component.Sprites[s].SetActive(false);
+                    }
+                    component.EndSprite.SetActive(true);
                 }
-                component.EndSprite.SetActive(true);
-            }
 
-            component.StopAnimation();
+                component.StopAnimation();
+            }
         }
     }
 }
