@@ -9,5 +9,6 @@ namespace Systems.UpgradeSystem
         public UpgradeType UpgradeType;
         public GameObject Thumbnails;
         public int PriceInSeconds;
+        public bool IsAdded;
     }
 }
