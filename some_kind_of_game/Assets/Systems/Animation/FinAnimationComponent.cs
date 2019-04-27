@@ -10,8 +10,7 @@ namespace Systems.Animation
         [Range(0, 360)]
         public int SpreadAngle = 90;
         public float WobbleSpeed = 10;
-
-
+        
         public float CurrentAngle { get; set; }
         public FinDirection Direction { get; set; } = FinDirection.Left;
     }

@@ -15,10 +15,13 @@ namespace Systems.Animation
 
         public override void Register(FinAnimationComponent component)
         {
+            //initial angle is random
             component.CurrentAngle = UnityEngine.Random.Range(-component.SpreadAngle / 2, component.SpreadAngle / 2);
+            component.transform.Rotate(Vector3.up, component.CurrentAngle);
 
+            //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
             component.FixedUpdateAsObservable()
-            .Select(_ => Time.deltaTime)
+            .Select(_ => Time.fixedDeltaTime)
             .Subscribe(delta =>
             {
                 var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);
