@@ -625,6 +625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1845a34967d3754bbee49666b2db681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpgradeConfigs:
+  - UpgradeType: 0
+    Thumbnails: {fileID: 0}
+    PriceInSeconds: 0
 --- !u!4 &1740450456
 Transform:
   m_ObjectHideFlags: 0
