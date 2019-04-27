@@ -23,8 +23,11 @@ namespace Systems.Animation
 
                 if (component.Direction == FinDirection.Left)
                 {
-                    if (component.CurrentAngle + angleDelta < -component.SpreadAngle / 2)
+                    if (component.CurrentAngle + angleDelta <= -component.SpreadAngle / 2)
+                    {
+                        angleDelta = 0;
                         component.Direction = FinDirection.Right;
+                    }
 
                     component.CurrentAngle = Math.Max(angleDelta + component.CurrentAngle, -component.SpreadAngle / 2);
                 }
@@ -33,7 +36,7 @@ namespace Systems.Animation
                 {
                     if (component.CurrentAngle + angleDelta >= component.SpreadAngle / 2)
                     {
-                        angleDelta = component.CurrentAngle + angleDelta - component.SpreadAngle / 2;
+                        angleDelta = 0;
                         component.Direction = FinDirection.Left;
                     }
 
