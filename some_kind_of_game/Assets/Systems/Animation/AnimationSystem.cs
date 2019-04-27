@@ -15,6 +15,8 @@ namespace Systems.Animation
 
         public override void Register(FinAnimationComponent component)
         {
+            component.CurrentAngle = UnityEngine.Random.Range(-component.SpreadAngle / 2, component.SpreadAngle / 2);
+
             component.FixedUpdateAsObservable()
             .Select(_ => Time.deltaTime)
             .Subscribe(delta =>
