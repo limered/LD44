@@ -10,13 +10,18 @@ using UniRx.Operators;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<FinAnimationComponent>
+    public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent>
     {
 
         public override void Register(FinAnimationComponent component)
         {
+            //initial angle is random
+            component.CurrentAngle = UnityEngine.Random.Range(-component.SpreadAngle / 2, component.SpreadAngle / 2);
+            component.transform.Rotate(Vector3.up, component.CurrentAngle);
+
+            //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
             component.FixedUpdateAsObservable()
-            .Select(_ => Time.deltaTime)
+            .Select(_ => Time.fixedDeltaTime)
             .Subscribe(delta =>
             {
                 var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);
@@ -46,6 +51,64 @@ namespace Systems.Animation
                 component.transform.Rotate(Vector3.up, angleDelta);
             })
             .AddTo(component);
+        }
+
+        public override void Register(BlowFishAnimationComponent component)
+        {
+
+        }
+
+        public override void Register(BasicToggleAnimationComponent component)
+        {
+            component.FixedUpdateAsObservable()
+            .Select(_ => component.CurrentSprite != BasicToggleAnimationComponent.NotAnimating)
+            .DistinctUntilChanged()
+            .SelectMany(animating => animating ? Observable.FromCoroutine(() => Animate(component)) : Observable.Empty<Unit>())
+            .Subscribe()
+            .AddTo(component);
+
+            component.SpriteIndexWithoutAnimation
+            .Subscribe(index =>
+            {
+                for (var s = 0; s < component.Sprites.Length; s++)
+                {
+                    component.Sprites[s].SetActive(s == index);
+                }
+            })
+            .AddTo(component);
+        }
+
+        private IEnumerator Animate(BasicToggleAnimationComponent component)
+        {
+            var steps = component.Sprites.Length;
+            var time = component.AnimationTime;
+            var delta = time / steps;
+
+            component.StartAnimation();
+
+            for (var i = 0; i < steps; i++)
+            {
+                for (var s = 0; s < component.Sprites.Length; s++)
+                {
+                    component.Sprites[s].SetActive(component.CurrentSprite == s);
+                }
+
+                yield return new WaitForSeconds(delta);
+                component.CurrentSprite += component.Reverse ? -1 : 1;
+                component.CurrentSprite = Math.Max(0, component.CurrentSprite);
+                component.CurrentSprite = Math.Min(component.CurrentSprite, steps - 1);
+            }
+
+            if (component.EndSprite)
+            {
+                for (var s = 0; s < component.Sprites.Length; s++)
+                {
+                    component.Sprites[s].SetActive(false);
+                }
+                component.EndSprite.SetActive(true);
+            }
+
+            component.StopAnimation();
         }
     }
 }
