@@ -2,6 +2,7 @@
 using SystemBase;
 using Systems.Control;
 using Systems.Movement;
+using Systems.Movement.Modifier;
 using UniRx;
 using UnityEngine;
 using Utils.Plugins;
@@ -19,11 +20,13 @@ namespace Systems.PlayerUpgrades.TailFin
             _rotor = component;
 
             _player.WhereNotNull()
-                .Select(playerComponent => playerComponent.GetComponent<FishyMovementComponent>())
-                .Subscribe(movement =>
+                .Subscribe(playerComponent =>
                     {
-                        movement.AccelerationFactorModifier.Add(old => new Vector2(old.x + _rotor.AccelerationSummand, old.y));
-                        movement.MaxSpeedModifier.Add(old => new Vector2(old.x + _rotor.MaxSpeedSummand, old.y));
+                        var accModifier = playerComponent.gameObject.AddComponent<AccelerationModifier>();
+                        accModifier.Summand = new Vector2(_rotor.AccelerationSummand, 0);
+
+                        var maxSpeedModifier = playerComponent.gameObject.AddComponent<MaxSpeedModifier>();
+                        maxSpeedModifier.Summand = new Vector2(_rotor.MaxSpeedSummand, 0);
                     }
                 )
                 .AddTo(component);

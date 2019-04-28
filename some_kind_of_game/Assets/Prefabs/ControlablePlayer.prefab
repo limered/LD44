@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AccelerationDefault: {x: 30, y: 30}
   MaxSpeedDefault: {x: 20, y: 5}
-  BackwardFrictionFactor: 2
+  BackwardFrictionFactorDefault: 2
   ColliderObject: {fileID: 0}
 --- !u!114 &5847042438616077711
 MonoBehaviour:
