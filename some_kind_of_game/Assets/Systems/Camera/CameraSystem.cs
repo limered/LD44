@@ -45,12 +45,12 @@ namespace Systems.Camera
             if (playerPosition.x > right)
             {
                 var distance = playerPosition.x - right;
-                newX = camPosition.x + distance * gatedCameraComponent.AnimationModifier * Time.fixedDeltaTime;
+                newX = camPosition.x + distance * gatedCameraComponent.AnimationModifier * UnityEngine.Time.fixedDeltaTime;
             }
             else if (playerPosition.x < left)
             {
                 var distance = playerPosition.x - left;
-                newX = camPosition.x + distance * gatedCameraComponent.AnimationModifier * Time.fixedDeltaTime;
+                newX = camPosition.x + distance * gatedCameraComponent.AnimationModifier * UnityEngine.Time.fixedDeltaTime;
             }
 
             gatedCameraComponent.transform.position = new Vector3(newX,

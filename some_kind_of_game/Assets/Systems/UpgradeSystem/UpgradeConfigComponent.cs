@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using SystemBase;
 
 namespace Systems.UpgradeSystem
 {
-    public class UpgradeConfigComponent : MonoBehaviour
+    public class UpgradeConfigComponent : GameComponent
     {
         public List<UpgradeConfig> UpgradeConfigs;
     }

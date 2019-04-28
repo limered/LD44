@@ -21,7 +21,7 @@ namespace Systems.Animation
 
             //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
             component.FixedUpdateAsObservable()
-            .Select(_ => Time.fixedDeltaTime)
+            .Select(_ => UnityEngine.Time.fixedDeltaTime)
             .Subscribe(delta =>
             {
                 var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);

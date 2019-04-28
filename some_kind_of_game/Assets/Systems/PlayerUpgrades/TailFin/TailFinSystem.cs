@@ -1,6 +1,6 @@
 ﻿using SystemBase;
 using Systems.Control;
-using Systems.Movement;
+using Systems.Movement.Modifier;
 using UniRx;
 using UnityEngine;
 using Utils.Plugins;
@@ -11,29 +11,27 @@ namespace Systems.PlayerUpgrades.TailFin
     public class TailFinSystem : GameSystem<PlayerComponent, RotorComponent>
     {
         private readonly ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>(null);
-        private RotorComponent _rotor;
 
         public override void Register(RotorComponent component)
         {
-            _rotor = component;
-
             _player.WhereNotNull()
-                .Select(playerComponent => playerComponent.GetComponent<FishyMovementComponent>())
-                .Subscribe(movement =>
-                    {
-                        movement.AccelerationFactorModifier
-                            .Add(old => new Vector2(old.x + _rotor.AccelerationSummand, old.y));
-
-                        movement.MaxSpeedModifier
-                            .Add(old => new Vector2(old.x + _rotor.MaxSpeedSummand, old.y));
-                    }
-                )
+                .Select(player => new { player, rotor = component })
+                .Subscribe(t => AddRotorModifiersToPlayer(t.player, t.rotor))
                 .AddTo(component);
         }
 
         public override void Register(PlayerComponent component)
         {
             _player.Value = component;
+        }
+
+        private static void AddRotorModifiersToPlayer(Component player, RotorComponent rotor)
+        {
+            var accModifier = player.gameObject.AddComponent<AccelerationModifier>();
+            accModifier.Summand = new Vector2(rotor.AccelerationSummand, 0);
+
+            var maxSpeedModifier = player.gameObject.AddComponent<MaxSpeedModifier>();
+            maxSpeedModifier.Summand = new Vector2(rotor.MaxSpeedSummand, 0);
         }
     }
 }

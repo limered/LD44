@@ -27,7 +27,7 @@ namespace Systems.Movement
 
         private static void Animate(FishyMovementComponent component)
         {
-            var nextVelocity = component.Velocity + component.Acceleration * Time.fixedDeltaTime;
+            var nextVelocity = component.Velocity + component.Acceleration * UnityEngine.Time.fixedDeltaTime;
 
             if (Mathf.Abs(component.Velocity.x) < component.MaxSpeed.x)
             {
@@ -43,12 +43,12 @@ namespace Systems.Movement
         private static void ApplyFriction(FishyMovementComponent component)
         {
             var backFricktion = component.Velocity * -component.BackwardFrictionFactor;
-            component.Velocity = component.Velocity + backFricktion * Time.fixedDeltaTime;
+            component.Velocity = component.Velocity + backFricktion * UnityEngine.Time.fixedDeltaTime;
         }
 
         private static void ApplyAnimationToModel(FishyMovementComponent component)
         {
-            var positionChange = component.Velocity * Time.fixedDeltaTime;
+            var positionChange = component.Velocity * UnityEngine.Time.fixedDeltaTime;
             
             component.transform.position = new Vector3(
                 component.transform.position.x + positionChange.x,
