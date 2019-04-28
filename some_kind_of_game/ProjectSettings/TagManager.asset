@@ -50,6 +50,12 @@ TagManager:
   - name: Fish Body
     uniqueID: 1075185735
     locked: 0
+  - name: Inside Mouth
+    uniqueID: 2145013981
+    locked: 0
+  - name: Kailax Mouth
+    uniqueID: 3408752661
+    locked: 0
   - name: On Fish Skin
     uniqueID: 2633375779
     locked: 0
