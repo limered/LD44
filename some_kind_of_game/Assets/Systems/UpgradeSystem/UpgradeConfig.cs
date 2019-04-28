@@ -1,4 +1,5 @@
 ﻿using System;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.UpgradeSystem
@@ -10,6 +11,6 @@ namespace Systems.UpgradeSystem
         public Sprite ActiveThumbnail;
         public Sprite InactiveThumbnail;
         public int PriceInSeconds;
-        public bool IsAdded;
+        public BoolReactiveProperty IsAdded;
     }
 }

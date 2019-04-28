@@ -6,16 +6,18 @@ namespace Design.Shop
     public class UpgradeButton : MonoBehaviour
     {
         public GameObject Thumbnail;
+        public GameObject Border;
 
         public void SetThumbnail(Sprite thumbnail)
         {
-            var image = Thumbnail.GetComponent<Image>();
-            image.sprite = thumbnail;
+            var thumbnailImage = Thumbnail.GetComponent<Image>();
+            thumbnailImage.sprite = thumbnail;
         }
 
-        public void OnButtonClick()
+        public void SetSelected(bool isSelected)
         {
-
+            var borderImage = Border.GetComponent<Image>();
+            borderImage.enabled = isSelected;
         }
     }
 }

@@ -1,24 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Design.Shop;
 using SystemBase;
+using Systems.Health;
+using Systems.Health.Actions;
 using Systems.UpgradeSystem;
-using Design.Shop;
 using UniRx;
-using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
-using Utils;
 
 namespace Systems.Shop
 {
-    [GameSystem]
-    public class ShopSystem : GameSystem<ShopComponent, UpgradeConfigComponent>
+    [GameSystem(typeof(HealthSystem))]
+    public class ShopSystem : GameSystem<ShopComponent, UpgradeConfigComponent, HealthComponent>
     {
         private ShopComponent _shopComponent;
         private UpgradeConfigComponent _upgradeConfigComponent;
-        private UpgradeConfig _selectedUpgrade;
+        private readonly ReactiveProperty<UpgradeConfig> _selectedUpgrade = new ReactiveProperty<UpgradeConfig>(null);
+        private Image _selectedThumbnail;
         private Button _buyButton;
         private Button _sellButton;
+        private HealthComponent _healthComponent;
 
         public override void Register(ShopComponent component)
         {
@@ -32,6 +32,11 @@ namespace Systems.Shop
             FinishRegistration();
         }
 
+        public override void Register(HealthComponent component)
+        {
+            _healthComponent = component;
+        }
+
         private void FinishRegistration()
         {
             if (_shopComponent == null || _upgradeConfigComponent == null)
@@ -39,15 +44,36 @@ namespace Systems.Shop
                 return;
             }
 
-            CreateUpgradeButtons();
             InitBuyAndSellButtons();
+            CreateUpgradeButtons();
+            InitSelectedUpgrade();
+        }
+
+        private void InitSelectedUpgrade()
+        {
+            _selectedUpgrade.AsObservable().Subscribe(_ => OnSelectedUpgradeChanged()).AddTo(_shopComponent);
         }
 
         private void InitBuyAndSellButtons()
         {
             _buyButton = _shopComponent.BuyButton.GetComponent<Button>();
+            _buyButton.OnClickAsObservable().Subscribe(_ => BuyButtonClicked()).AddTo(_buyButton);
             _sellButton = _shopComponent.SellButton.GetComponent<Button>();
-            UpdateButtonStates();
+            _sellButton.OnClickAsObservable().Subscribe(_ => SellButtonClicked()).AddTo(_sellButton);
+        }
+
+        private void BuyButtonClicked()
+        {
+            _selectedUpgrade.Value.IsAdded.Value = true;
+            MessageBroker.Default.Publish(new HealthActSubtract
+                {ComponentToChange = _healthComponent, Value = _selectedUpgrade.Value.PriceInSeconds});
+        }
+
+        private void SellButtonClicked()
+        {
+            _selectedUpgrade.Value.IsAdded.Value = false;
+            MessageBroker.Default.Publish(new HealthActAdd
+                {ComponentToChange = _healthComponent, Value = _selectedUpgrade.Value.PriceInSeconds});
         }
 
         private void CreateUpgradeButtons()
@@ -55,30 +81,46 @@ namespace Systems.Shop
             var upgradeConfigs = _upgradeConfigComponent.GetComponent<UpgradeConfigComponent>().UpgradeConfigs;
             foreach (var upgradeConfig in upgradeConfigs)
             {
-                var upgradeGo = Game.Instantiate(_shopComponent.UpgradeButton, _shopComponent.UpgradeContainer.transform);
-                SetThumbnail(upgradeGo, upgradeConfig);
-                var component = upgradeGo.GetComponent<Button>();
-                component.OnClickAsObservable().Subscribe(_ => OnUpgradeClicked(upgradeConfig)).AddTo(component);
+                var upgradeGo = Object.Instantiate(_shopComponent.UpgradeButton, _shopComponent.UpgradeContainer.transform);
+
+                var button = upgradeGo.GetComponent<Button>();
+                var upgradeButton = upgradeGo.GetComponent<UpgradeButton>();
+                button.OnClickAsObservable().Subscribe(_ => OnUpgradeClicked(upgradeConfig)).AddTo(button);
+
+                upgradeConfig.IsAdded.AsObservable().Subscribe(_ => OnIsAddedChanged(upgradeButton, upgradeConfig))
+                    .AddTo(_upgradeConfigComponent);
+
+                _selectedUpgrade.AsObservable().Subscribe(_ => OnSelectedUpgradeChanged(upgradeButton, upgradeConfig)).AddTo(_shopComponent);
             }
+        }
+
+        private void OnSelectedUpgradeChanged(UpgradeButton upgradeButton, UpgradeConfig upgradeConfig)
+        {
+           upgradeButton.Border.GetComponent<Image>().enabled = _selectedUpgrade.Value == upgradeConfig;
+        }
+
+        private void OnIsAddedChanged(UpgradeButton upgradeButton, UpgradeConfig upgradeConfig)
+        {
+            UpdateThumbnail(upgradeButton, upgradeConfig);
+            OnSelectedUpgradeChanged();
+        }
+
+        private static void UpdateThumbnail(UpgradeButton upgradeButton, UpgradeConfig upgradeConfig)
+        {
+            var thumbnail = upgradeConfig.IsAdded.Value
+                ? upgradeConfig.ActiveThumbnail
+                : upgradeConfig.InactiveThumbnail;
+            upgradeButton.SetThumbnail(thumbnail);
         }
 
         private void OnUpgradeClicked(UpgradeConfig upgradeConfig)
         {
-            if (_selectedUpgrade == upgradeConfig)
-            {
-                _selectedUpgrade = null;
-            }
-            else
-            {
-                _selectedUpgrade = upgradeConfig;
-            }
-            
-            UpdateButtonStates();
+            _selectedUpgrade.Value = _selectedUpgrade.Value == upgradeConfig ? null : upgradeConfig;
         }
 
-        private void UpdateButtonStates()
+        private void OnSelectedUpgradeChanged()
         {
-            if (_selectedUpgrade == null)
+            if (_selectedUpgrade.Value == null)
             {
                 _buyButton.interactable = false;
                 _sellButton.interactable = false;
@@ -92,33 +134,13 @@ namespace Systems.Shop
 
         private bool CanSellUpgrade()
         {
-            return _selectedUpgrade.IsAdded;
+            return _selectedUpgrade.Value.IsAdded.Value;
         }
 
         private bool CanBuyUpgrade()
         {
-            return !_selectedUpgrade.IsAdded;
-        }
-
-        private static void SetThumbnail(GameObject upgradeGo, UpgradeConfig upgradeConfig)
-        {
-            var thumbnail = upgradeConfig.IsAdded ? upgradeConfig.ActiveThumbnail : upgradeConfig.InactiveThumbnail;
-            upgradeGo.GetComponent<UpgradeButton>().SetThumbnail(thumbnail);
-        }
-
-        public override void Init()
-        {
-            //component.UpdateAsObservable().Select(_ => new { upgradeConfigs, canvas })
-            //    .Subscribe(x => OnShopUpdate(x.upgradeConfigs, x.canvas)).AddTo(component);
-        }
-
-        private static void OnShopUpdate(List<UpgradeConfig> upgrades, Canvas canvas)
-        {
-            var canvasTransform = canvas.gameObject.transform;
-
-            var upgrade = upgrades.First();
-
-            
+            return !_selectedUpgrade.Value.IsAdded.Value &&
+                   _healthComponent.CurrentHealth.Value >= _selectedUpgrade.Value.PriceInSeconds;
         }
     }
 }
