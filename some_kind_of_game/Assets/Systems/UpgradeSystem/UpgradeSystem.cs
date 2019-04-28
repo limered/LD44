@@ -24,7 +24,7 @@ namespace Systems.UpgradeSystem
         {
             upgrades.UpgradeConfigs.ForEach(config =>
                 {
-                    if (config.IsAdded)
+                    if (config.IsAdded.Value)
                     {
                         playerComponent.gameObject.AddComponent(ResolveUpgradeComponentType(config.UpgradeType));
                     }

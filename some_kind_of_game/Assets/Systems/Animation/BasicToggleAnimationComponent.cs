@@ -11,6 +11,7 @@ namespace Systems.Animation
     public class BasicToggleAnimationComponent : GameComponent
     {
         public const int NotAnimating = -1;
+        public bool StartAnimationOnAwake;
         public float AnimationTime = 1f;
         public GameObject[] Sprites;
         public GameObject EndSprite;

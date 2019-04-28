@@ -130,6 +130,8 @@ namespace Systems.Animation
                 }
             })
             .AddTo(component);
+
+            if (component.StartAnimationOnAwake) component.StartAnimation();
         }
 
         private IEnumerator Animate(BasicToggleAnimationComponent component)

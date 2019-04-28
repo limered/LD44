@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1518814109
+    locked: 0
+  - name: Fin
+    uniqueID: 4014631501
+    locked: 0
+  - name: Fish Body
+    uniqueID: 1075185735
+    locked: 0
+  - name: Inside Mouth
+    uniqueID: 2145013981
+    locked: 0
+  - name: Kailax Mouth
+    uniqueID: 3408752661
+    locked: 0
+  - name: On Fish Skin
+    uniqueID: 2633375779
+    locked: 0
