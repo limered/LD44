@@ -63,6 +63,7 @@ namespace Systems.Player
             {
                 case UpgradeType.Rotor: return "TailFin";
                 case UpgradeType.LaserEye: return "Eye";
+                case UpgradeType.Uzi: return "Mouth";
                 default: return "Default";
             }
         }
@@ -73,6 +74,7 @@ namespace Systems.Player
             {
                 case UpgradeType.Rotor: return "Rotor";
                 case UpgradeType.LaserEye: return "Laser";
+                case UpgradeType.Uzi: return "Uzi";
                 default: return "Default";
             }
         }

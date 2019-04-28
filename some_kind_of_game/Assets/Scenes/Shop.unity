@@ -197,6 +197,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 3407100649335665533, guid: ebbb71322480447ea83d64b1b5138b20,
+        type: 3}
+      propertyPath: Slots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407100649335665533, guid: ebbb71322480447ea83d64b1b5138b20,
+        type: 3}
+      propertyPath: Slots.Array.data[2].Component
+      value: 
+      objectReference: {fileID: 1997792113}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbb71322480447ea83d64b1b5138b20, type: 3}
 --- !u!1 &164279549
@@ -1754,6 +1764,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863443087}
   m_CullTransparentMesh: 0
+--- !u!114 &1997792113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 64297874, guid: ebbb71322480447ea83d64b1b5138b20,
+    type: 3}
+  m_PrefabInstance: {fileID: 60941115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7034bd327404c4494b97d7031df69e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014645555
 GameObject:
   m_ObjectHideFlags: 0
