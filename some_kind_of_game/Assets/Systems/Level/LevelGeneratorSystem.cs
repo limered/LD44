@@ -1,9 +1,12 @@
 ﻿using SystemBase;
 using Systems.Control;
+using Systems.GameState.Messages;
+using GameState.States;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace Systems.Level
 {
@@ -36,7 +39,11 @@ namespace Systems.Level
         {
             component.ExitTrigger.OnTriggerEnter2DAsObservable()
                 .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
-                .Subscribe(d => SceneManager.LoadScene("Level"))
+                .Subscribe(d =>
+                {
+                    MessageBroker.Default.Publish(new GameMsgPause());
+                    SceneManager.LoadScene("Shop");
+                })
                 .AddTo(component);
         }
     }

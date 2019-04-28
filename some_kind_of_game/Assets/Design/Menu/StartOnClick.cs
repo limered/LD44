@@ -1,6 +1,8 @@
-﻿using GameState.States;
+﻿using Systems.GameState.Messages;
+using GameState.States;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Design.Menu
 {
@@ -8,7 +10,8 @@ namespace Design.Menu
     {
         public void StartGame()
         {
-            MessageBroker.Default.Publish(new Running());
+            MessageBroker.Default.Publish(new GameMsgStart());
+            SceneManager.LoadScene("Level");
         }
     }
 }

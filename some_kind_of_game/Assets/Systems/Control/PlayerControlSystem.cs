@@ -1,6 +1,8 @@
 ﻿using SystemBase;
 using Systems.Movement;
+using GameState.States;
 using UnityEngine;
+using Utils;
 using Utils.Unity;
 
 namespace Systems.Control
@@ -15,6 +17,12 @@ namespace Systems.Control
 
         private static void HandlePlayerInput(FishyMovementComponent component)
         {
+            if (IoC.Game.GameStateContext.CurrentState.Value.GetType() != typeof(Running))
+            {
+                component.Acceleration = Vector2.zero;
+                return;
+            }
+
             float x = 0;
             float y = 0;
             if (KeyCode.D.IsPressed() || KeyCode.RightArrow.IsPressed())
