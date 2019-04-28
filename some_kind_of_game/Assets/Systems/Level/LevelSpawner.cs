@@ -8,5 +8,7 @@ namespace Systems.Level
     {
         public int PartsPerLevel = 5;
         public List<GameObject> RoomPartPrefabs = new List<GameObject>();
+        public GameObject PlayerSpawnPrefab;
+        public GameObject FinishPrefab;
     }
 }

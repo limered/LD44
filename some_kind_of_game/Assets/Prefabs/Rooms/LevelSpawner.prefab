@@ -46,3 +46,6 @@ MonoBehaviour:
   PartsPerLevel: 5
   RoomPartPrefabs:
   - {fileID: 3153787979119816154, guid: 0e7ce06846d93f743aead6cb02914b2a, type: 3}
+  PlayerSpawnPrefab: {fileID: 6767753841640363692, guid: bc93bd2cec80a5e48a4e15d109348d8c,
+    type: 3}
+  FinishPrefab: {fileID: 0}
