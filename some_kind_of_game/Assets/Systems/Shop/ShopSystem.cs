@@ -3,6 +3,7 @@ using SystemBase;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.UpgradeSystem;
+using GameState.States;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ namespace Systems.Shop
         private Image _selectedThumbnail;
         private Button _buyButton;
         private Button _sellButton;
+        private Button _continueButton;
         private HealthComponent _healthComponent;
 
         public override void Register(ShopComponent component)
@@ -44,7 +46,7 @@ namespace Systems.Shop
                 return;
             }
 
-            InitBuyAndSellButtons();
+            InitButtons();
             CreateUpgradeButtons();
             InitSelectedUpgrade();
         }
@@ -54,12 +56,16 @@ namespace Systems.Shop
             _selectedUpgrade.AsObservable().Subscribe(_ => OnSelectedUpgradeChanged()).AddTo(_shopComponent);
         }
 
-        private void InitBuyAndSellButtons()
+        private void InitButtons()
         {
             _buyButton = _shopComponent.BuyButton.GetComponent<Button>();
             _buyButton.OnClickAsObservable().Subscribe(_ => BuyButtonClicked()).AddTo(_buyButton);
+
             _sellButton = _shopComponent.SellButton.GetComponent<Button>();
             _sellButton.OnClickAsObservable().Subscribe(_ => SellButtonClicked()).AddTo(_sellButton);
+
+            _continueButton = _shopComponent.ContinueButton.GetComponent<Button>();
+            _continueButton.OnClickAsObservable().Subscribe(_ => ContinueButtonClicked()).AddTo(_continueButton);
         }
 
         private void BuyButtonClicked()
@@ -74,6 +80,11 @@ namespace Systems.Shop
             _selectedUpgrade.Value.IsAdded.Value = false;
             MessageBroker.Default.Publish(new HealthActAdd
                 {ComponentToChange = _healthComponent, Value = _selectedUpgrade.Value.PriceInSeconds});
+        }
+
+        private static void ContinueButtonClicked()
+        {
+            MessageBroker.Default.Publish(new Running());
         }
 
         private void CreateUpgradeButtons()
@@ -140,7 +151,7 @@ namespace Systems.Shop
         private bool CanBuyUpgrade()
         {
             return !_selectedUpgrade.Value.IsAdded.Value &&
-                   _healthComponent.CurrentHealth.Value >= _selectedUpgrade.Value.PriceInSeconds;
+                   _healthComponent.CurrentHealth.Value > _selectedUpgrade.Value.PriceInSeconds;
         }
     }
 }
