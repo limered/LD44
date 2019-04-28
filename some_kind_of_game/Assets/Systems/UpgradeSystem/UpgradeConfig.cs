@@ -7,7 +7,8 @@ namespace Systems.UpgradeSystem
     public class UpgradeConfig
     {
         public UpgradeType UpgradeType;
-        public GameObject Thumbnails;
+        public Sprite ActiveThumbnail;
+        public Sprite InactiveThumbnail;
         public int PriceInSeconds;
         public bool IsAdded;
     }
