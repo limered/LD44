@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3939282485377472908}
   - component: {fileID: 4561103134283079220}
+  - component: {fileID: 703731489}
   m_Layer: 0
   m_Name: fish_yellow_flosse
   m_TagString: Untagged
@@ -79,6 +80,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &703731489
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154794021692658309}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.97, y: 2.67}
+    newSize: {x: 1.97, y: 2.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.13499999, y: -1.135}
+      - {x: -0.065, y: -1.105}
+      - {x: 0.074999996, y: -1.055}
+      - {x: 0.175, y: -1.015}
+      - {x: 0.53499997, y: -0.865}
+      - {x: 0.84499997, y: -0.73499995}
+      - {x: 0.97499996, y: -0.675}
+      - {x: 0.98499995, y: -0.415}
+      - {x: 0.98499995, y: 0.505}
+      - {x: 0.955, y: 0.545}
+      - {x: 0.78499997, y: 0.655}
+      - {x: 0.645, y: 0.73499995}
+      - {x: -0.044999998, y: 1.0749999}
+      - {x: -0.225, y: 1.155}
+      - {x: -0.345, y: 1.2049999}
+      - {x: -0.555, y: 1.285}
+      - {x: -0.615, y: 1.305}
+      - {x: -0.715, y: 1.3349999}
+      - {x: -0.85499996, y: 1.3349999}
+      - {x: -0.85499996, y: 1.295}
+      - {x: -0.835, y: 1.235}
+      - {x: -0.72499996, y: 1.015}
+      - {x: -0.635, y: 0.865}
+      - {x: -0.555, y: 0.73499995}
+      - {x: -0.53499997, y: 0.715}
+      - {x: -0.465, y: 0.59499997}
+      - {x: -0.16499999, y: 0.145}
+      - {x: -0.065, y: -0.035}
+      - {x: -0.21499999, y: -0.185}
+      - {x: -0.33499998, y: -0.315}
+      - {x: -0.415, y: -0.405}
+      - {x: -0.545, y: -0.555}
+      - {x: -0.675, y: -0.715}
+      - {x: -0.775, y: -0.835}
+      - {x: -0.945, y: -1.0749999}
+      - {x: -0.98499995, y: -1.175}
+      - {x: -0.98499995, y: -1.3249999}
+      - {x: -0.97499996, y: -1.3349999}
+      - {x: -0.765, y: -1.3349999}
+      - {x: -0.72499996, y: -1.3249999}
+      - {x: -0.575, y: -1.285}
+      - {x: -0.24499999, y: -1.175}
 --- !u!1 &1412633671383965514
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2314956386511466178}
   - component: {fileID: 3650206886861677918}
+  - component: {fileID: 823802670}
   m_Layer: 0
   m_Name: fish_yellow
   m_TagString: Untagged
@@ -204,6 +273,119 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &823802670
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2964342788175722912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.48, y: 3.52}
+    newSize: {x: 5.48, y: 3.52}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.82, y: -1.5799999}
+      - {x: 0.90999997, y: -1.52}
+      - {x: 1.06, y: -1.49}
+      - {x: 1.25, y: -1.48}
+      - {x: 1.53, y: -1.4599999}
+      - {x: 1.81, y: -1.39}
+      - {x: 1.9799999, y: -1.3399999}
+      - {x: 2.07, y: -1.3}
+      - {x: 2.2, y: -1.24}
+      - {x: 2.28, y: -1.1899999}
+      - {x: 2.36, y: -1.13}
+      - {x: 2.45, y: -1.04}
+      - {x: 2.52, y: -0.96}
+      - {x: 2.59, y: -0.87}
+      - {x: 2.6799998, y: -0.71}
+      - {x: 2.71, y: -0.58}
+      - {x: 2.74, y: -0.44}
+      - {x: 2.74, y: 0.099999994}
+      - {x: 2.7, y: 0.26}
+      - {x: 2.6499999, y: 0.42}
+      - {x: 2.58, y: 0.53}
+      - {x: 2.5, y: 0.64}
+      - {x: 2.31, y: 0.82}
+      - {x: 2.1699998, y: 0.90999997}
+      - {x: 2.04, y: 0.96999997}
+      - {x: 1.88, y: 1.03}
+      - {x: 1.74, y: 1.0699999}
+      - {x: 1.5999999, y: 1.1}
+      - {x: 1.4, y: 1.13}
+      - {x: 1.18, y: 1.15}
+      - {x: 0.91999996, y: 1.16}
+      - {x: 0.79999995, y: 1.1899999}
+      - {x: 0.78999996, y: 1.24}
+      - {x: 0.75, y: 1.3199999}
+      - {x: 0.58, y: 1.51}
+      - {x: 0.48, y: 1.5699999}
+      - {x: 0.31, y: 1.66}
+      - {x: 0.099999994, y: 1.7199999}
+      - {x: -0.049999997, y: 1.75}
+      - {x: -0.11, y: 1.76}
+      - {x: -0.84, y: 1.76}
+      - {x: -1.05, y: 1.7199999}
+      - {x: -1.12, y: 1.6899999}
+      - {x: -1.15, y: 1.66}
+      - {x: -1.17, y: 1.62}
+      - {x: -1.1, y: 1.52}
+      - {x: -0.59, y: 1.26}
+      - {x: -0.56, y: 1.24}
+      - {x: -0.42999998, y: 1.13}
+      - {x: -0.53999996, y: 1.1}
+      - {x: -0.85999995, y: 1.0699999}
+      - {x: -1.03, y: 1.04}
+      - {x: -1.27, y: 0.97999996}
+      - {x: -1.61, y: 0.9}
+      - {x: -1.9599999, y: 0.76}
+      - {x: -2.1399999, y: 0.68}
+      - {x: -2.28, y: 0.59999996}
+      - {x: -2.37, y: 0.55}
+      - {x: -2.59, y: 0.34}
+      - {x: -2.6299999, y: 0.29}
+      - {x: -2.71, y: 0.14}
+      - {x: -2.73, y: 0.089999996}
+      - {x: -2.74, y: 0.07}
+      - {x: -2.74, y: -0.32}
+      - {x: -2.7, y: -0.44}
+      - {x: -2.6399999, y: -0.56}
+      - {x: -2.57, y: -0.65999997}
+      - {x: -2.45, y: -0.78999996}
+      - {x: -2.29, y: -0.93}
+      - {x: -2.1, y: -1.05}
+      - {x: -1.88, y: -1.15}
+      - {x: -1.7099999, y: -1.2099999}
+      - {x: -1.4399999, y: -1.29}
+      - {x: -1.14, y: -1.36}
+      - {x: -0.90999997, y: -1.4}
+      - {x: -0.66999996, y: -1.43}
+      - {x: -0.57, y: -1.4399999}
+      - {x: -0.65, y: -1.4699999}
+      - {x: -0.7, y: -1.5}
+      - {x: -0.79999995, y: -1.5799999}
+      - {x: -0.79999995, y: -1.65}
+      - {x: -0.76, y: -1.6899999}
+      - {x: -0.65, y: -1.74}
+      - {x: -0.45999998, y: -1.76}
+      - {x: 0.25, y: -1.76}
+      - {x: 0.31, y: -1.75}
+      - {x: 0.53999996, y: -1.6999999}
+      - {x: 0.66999996, y: -1.65}
 --- !u!1 &7756291309452877641
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +395,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7756291309452877640}
+  - component: {fileID: 724455491}
+  - component: {fileID: 724455489}
+  - component: {fileID: 724455490}
   m_Layer: 0
   m_Name: YellowFish
   m_TagString: Untagged
@@ -229,10 +414,61 @@ Transform:
   m_GameObject: {fileID: 7756291309452877641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.75, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 2314956386511466178}
   - {fileID: 1921703407655226235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &724455491
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756291309452877641}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &724455489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756291309452877641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea91ba08c5a983a42a0ee3d05d3626c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplier: 1
+  Direction: {x: -1, y: 0}
+--- !u!114 &724455490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756291309452877641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab313844899744139d85341b8cbfd620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AccelerationDefault: {x: 1, y: 1}
+  MaxSpeedDefault: {x: 10, y: 2}
+  BackwardFrictionFactorDefault: 1
+  ColliderObject: {fileID: 0}

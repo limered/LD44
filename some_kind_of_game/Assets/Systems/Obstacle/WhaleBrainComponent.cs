@@ -2,7 +2,7 @@
 using Systems.Movement;
 using UnityEngine;
 
-namespace Systems.ActiveOstacles
+namespace Systems.Obstacle
 {
     [RequireComponent(typeof(FishyMovementComponent))]
     public class WhaleComponent : GameComponent

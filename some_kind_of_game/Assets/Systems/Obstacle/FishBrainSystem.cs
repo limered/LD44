@@ -19,14 +19,13 @@ namespace Systems.Obstacle
             var animation = component.GetComponent<BlowFishAnimationComponent>();
 
             collider.OnTriggerStay2DAsObservable()
-            .Do(_ => animation.Grow())
-            .Throttle(TimeSpan.FromSeconds(5))
-            .Subscribe(_ =>
-            {
-                animation.Shrink();
-            })
-            .AddTo(component);
-
+                .Do(_ => animation.Grow())
+                .Throttle(TimeSpan.FromSeconds(5))
+                .Subscribe(_ =>
+                {
+                    animation.Shrink();
+                })
+                .AddTo(component);
 
         }
     }
