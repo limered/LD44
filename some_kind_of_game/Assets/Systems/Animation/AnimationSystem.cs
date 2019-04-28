@@ -64,7 +64,7 @@ namespace Systems.Animation
             .Select(_ => UnityEngine.Time.fixedDeltaTime)
             .Subscribe(delta =>
             {
-                var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);
+                var angleDelta = (int)component.Direction * delta * component.WobbleSpeed;
 
                 if (component.Direction == AlgaeDirection.Left)
                 {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SystemBase;
 using UniRx;
 using UnityEngine;
+using Utils.Plugins;
 
 namespace Systems.Animation
 {
@@ -21,7 +22,7 @@ namespace Systems.Animation
 
         public ReactiveProperty<Unit> OnShowEndSprite { get; } = new ReactiveProperty<Unit>();
 
-        public int CurrentSprite  = NotAnimating;
+        public int CurrentSprite = NotAnimating;
 
         public void SetSpriteWithoutAnimation(int index)
         {
@@ -41,6 +42,7 @@ namespace Systems.Animation
         public void StopAnimation()
         {
             CurrentSprite = NotAnimating;
+            OnShowEndSprite.Fire();
         }
         #endregion
     }
