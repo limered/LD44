@@ -41,10 +41,13 @@ namespace Systems.Player
             {
                 foreach (var config in component.UpgradeConfigs)
                 {
-                    config.IsAdded.WhereIsTrue()
+                    config.IsAdded
                     .Subscribe(added =>
                     {
-                        player.SelectItem(config.UpgradeType.SlotName(), config.UpgradeType.ItemName());
+                        if (added)
+                            player.SelectItem(config.UpgradeType.SlotName(), config.UpgradeType.ItemName());
+                        else
+                            player.SelectItem(config.UpgradeType.SlotName(), "Default");
                     }).AddTo(component);
                 }
             })
