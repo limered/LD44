@@ -4,7 +4,6 @@ using Systems.GameState.Messages;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.UpgradeSystem;
-using GameState.States;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,10 +23,17 @@ namespace Systems.Shop
         private Button _continueButton;
         private HealthComponent _healthComponent;
 
+        private readonly FloatReactiveProperty _internalHealthValue = new FloatReactiveProperty(0);
+
         public override void Register(ShopComponent component)
         {
             _shopComponent = component;
             FinishRegistration();
+            MessageBroker.Default.Publish(new HealthActSet
+            {
+                Value = _internalHealthValue.Value,
+                ComponentToChange = _healthComponent,
+            });
         }
 
         public override void Register(UpgradeConfigComponent component)
@@ -39,6 +45,12 @@ namespace Systems.Shop
         public override void Register(HealthComponent component)
         {
             _healthComponent = component;
+            _internalHealthValue.Value = component.MaxHealth;
+            _internalHealthValue.Subscribe(v => MessageBroker.Default.Publish(new HealthActSet
+            {
+                ComponentToChange = component,
+                Value = v,
+            }));
         }
 
         private void FinishRegistration()
@@ -73,19 +85,22 @@ namespace Systems.Shop
         private void BuyButtonClicked()
         {
             _selectedUpgrade.Value.IsAdded.Value = true;
-            MessageBroker.Default.Publish(new HealthActSubtract
-                {ComponentToChange = _healthComponent, Value = _selectedUpgrade.Value.PriceInSeconds});
+            _internalHealthValue.Value -= _selectedUpgrade.Value.PriceInSeconds;
         }
 
         private void SellButtonClicked()
         {
             _selectedUpgrade.Value.IsAdded.Value = false;
-            MessageBroker.Default.Publish(new HealthActAdd
-                {ComponentToChange = _healthComponent, Value = _selectedUpgrade.Value.PriceInSeconds});
+            _internalHealthValue.Value += _selectedUpgrade.Value.PriceInSeconds;
         }
 
-        private static void ContinueButtonClicked()
+        private void ContinueButtonClicked()
         {
+            MessageBroker.Default.Publish(new HealthActSet
+            {
+                ComponentToChange = _healthComponent,
+                Value = _internalHealthValue.Value,
+            });
             MessageBroker.Default.Publish(new GameMsgUnpause());
             SceneManager.LoadScene("Level");
         }
@@ -154,7 +169,7 @@ namespace Systems.Shop
         private bool CanBuyUpgrade()
         {
             return !_selectedUpgrade.Value.IsAdded.Value &&
-                   _healthComponent.CurrentHealth.Value > _selectedUpgrade.Value.PriceInSeconds;
+                   _internalHealthValue.Value > _selectedUpgrade.Value.PriceInSeconds;
         }
     }
 }
