@@ -10,7 +10,7 @@ using UniRx.Operators;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent>
+    public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent, AlgaeAnimationComponent>
     {
         public override void Register(FinAnimationComponent component)
         {
@@ -48,6 +48,47 @@ namespace Systems.Animation
                 }
 
                 component.transform.Rotate(Vector3.up, angleDelta);
+            })
+            .AddTo(component);
+        }
+
+        public override void Register(AlgaeAnimationComponent component)
+        {
+            //initial angle is random
+            component.Direction = UnityEngine.Random.value > 0.5f ? AlgaeDirection.Left : AlgaeDirection.Right;
+            component.CurrentAngle = UnityEngine.Random.Range(component.MinAngle, component.MaxAngle);
+            component.transform.Rotate(component.RotationAxis, component.CurrentAngle);
+
+            //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
+            component.FixedUpdateAsObservable()
+            .Select(_ => UnityEngine.Time.fixedDeltaTime)
+            .Subscribe(delta =>
+            {
+                var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);
+
+                if (component.Direction == AlgaeDirection.Left)
+                {
+                    if (component.CurrentAngle + angleDelta <= component.MinAngle)
+                    {
+                        angleDelta = 0;
+                        component.Direction = AlgaeDirection.Right;
+                    }
+
+                    component.CurrentAngle = Math.Max(angleDelta + component.CurrentAngle, component.MinAngle);
+                }
+
+                if (component.Direction == AlgaeDirection.Right)
+                {
+                    if (component.CurrentAngle + angleDelta >= component.MaxAngle)
+                    {
+                        angleDelta = 0;
+                        component.Direction = AlgaeDirection.Left;
+                    }
+
+                    component.CurrentAngle = Math.Min(angleDelta + component.CurrentAngle, component.MaxAngle);
+                }
+
+                component.transform.Rotate(component.RotationAxis, angleDelta);
             })
             .AddTo(component);
         }
@@ -118,7 +159,7 @@ namespace Systems.Animation
                 if (i + 1 == steps && component.IsLoop)
                 {
                     i = -1;
-                    component.CurrentSprite = component.Reverse ? steps-1 : 0;
+                    component.CurrentSprite = component.Reverse ? steps - 1 : 0;
                 }
             }
 
