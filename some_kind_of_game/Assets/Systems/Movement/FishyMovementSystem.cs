@@ -8,7 +8,7 @@ using Utils.Unity;
 
 namespace Systems.Movement
 {
-    [GameSystem]
+    [GameSystem(typeof(Systems.Control.PlayerControlSystem))]
     public class FishyMovementSystem : GameSystem<FishyMovementComponent>
     {
         private const float CollisionShell = 0.01f;
@@ -32,6 +32,7 @@ namespace Systems.Movement
 
         private static void OnFishMove(FishyMovementComponent component)
         {
+            //if this crashes with NullReferenceException, the GameObject probably has no Brain-Component
             component.HandleInput(component);
             ApplyFriction(component);
             Animate(component);
@@ -70,7 +71,7 @@ namespace Systems.Movement
                 var currentNormal = hit.normal;
                 if (currentNormal.y > MinGroundNormalY && isVertical)
                 {
-                    
+
                     component.GroundNormal = currentNormal;
                     currentNormal.x = 0;
                 }
@@ -117,7 +118,7 @@ namespace Systems.Movement
 
         private static void FixCollider(FishyMovementComponent component)
         {
-            if(component.ColliderObject)
+            if (component.ColliderObject)
             {
                 component.ColliderObject.transform.localPosition = Vector3.zero;
             }
