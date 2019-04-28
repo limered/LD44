@@ -1224,8 +1224,8 @@ Canvas:
   m_GameObject: {fileID: 1379940562}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 701803071}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1314,12 +1314,26 @@ MonoBehaviour:
     ActiveThumbnail: {fileID: 21300000, guid: b28afc1a47bdbc748a6bdbccf8baab16, type: 3}
     InactiveThumbnail: {fileID: 21300000, guid: df39833cdea94a8499b77567b152b51a,
       type: 3}
-    PriceInSeconds: 10
+    PriceInSeconds: 5
     IsAdded:
       value: 0
-  - UpgradeType: 1
-    ActiveThumbnail: {fileID: 21300000, guid: b28afc1a47bdbc748a6bdbccf8baab16, type: 3}
-    InactiveThumbnail: {fileID: 21300000, guid: df39833cdea94a8499b77567b152b51a,
+  - UpgradeType: 2
+    ActiveThumbnail: {fileID: 21300000, guid: 6f6a2dd9c2bb5b84fa91ad53a52e9022, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 09695674e5ef66c4c9159424874a1866,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 0
+  - UpgradeType: 3
+    ActiveThumbnail: {fileID: 21300000, guid: f76147f0180df344ab509e56a5310d77, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 1724d9fb612ab0f41a029c30b6ed0c58,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 0
+  - UpgradeType: 4
+    ActiveThumbnail: {fileID: 21300000, guid: 2a04131610a94f64088ac4919470ab60, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 31a69277aaf51fa4195ddbd7acc0e53c,
       type: 3}
     PriceInSeconds: 5
     IsAdded:
