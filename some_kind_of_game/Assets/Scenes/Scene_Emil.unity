@@ -184,7 +184,7 @@ MonoBehaviour:
     InactiveThumbnail: {fileID: 0}
     PriceInSeconds: 0
     IsAdded:
-      value: 1
+      value: 0
 --- !u!1 &432991819
 GameObject:
   m_ObjectHideFlags: 0
