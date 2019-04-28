@@ -613,7 +613,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 1
+  m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -2770,7 +2770,7 @@ CompositeCollider2D:
       - {x: 25.428, y: -7.26}
       - {x: 25.445, y: -7.26}
       - {x: 25.445, y: -7.265}
-  m_VertexDistance: 0.0005
+  m_VertexDistance: 0.001
 --- !u!1 &2251482494422203850
 GameObject:
   m_ObjectHideFlags: 0

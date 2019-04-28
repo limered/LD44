@@ -2080,7 +2080,7 @@ CompositeCollider2D:
       - {x: 36.58194, y: -7.119}
       - {x: 36.786316, y: -7.119}
       - {x: 36.786316, y: -7.256}
-  m_VertexDistance: 0.0005
+  m_VertexDistance: 0.001
 --- !u!1 &2251482494422203850
 GameObject:
   m_ObjectHideFlags: 0
