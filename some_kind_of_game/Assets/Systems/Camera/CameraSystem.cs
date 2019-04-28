@@ -15,6 +15,7 @@ namespace Systems.Camera
         public override void Register(PlayerComponent component)
         {
             _player.Value = component;
+            component.OnDestroyAsObservable().Subscribe(unit => _player.Value = null);
         }
 
         public override void Register(GatedCameraComponent gatedCameraComponent)
@@ -31,7 +32,7 @@ namespace Systems.Camera
             gatedCamera.FixedUpdateAsObservable()
                 .Select(_ => gatedCamera)
                 .Subscribe(AnimateCamera)
-                .AddTo(player);
+                .AddTo(gatedCamera);
         }
 
         private static void AnimateCamera(GatedCameraComponent gatedCameraComponent)

@@ -1,11 +1,13 @@
 ﻿using Design.Shop;
 using SystemBase;
+using Systems.GameState.Messages;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.UpgradeSystem;
 using GameState.States;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Systems.Shop
@@ -84,7 +86,8 @@ namespace Systems.Shop
 
         private static void ContinueButtonClicked()
         {
-            MessageBroker.Default.Publish(new Running());
+            MessageBroker.Default.Publish(new GameMsgUnpause());
+            SceneManager.LoadScene("Level");
         }
 
         private void CreateUpgradeButtons()
@@ -151,7 +154,7 @@ namespace Systems.Shop
         private bool CanBuyUpgrade()
         {
             return !_selectedUpgrade.Value.IsAdded.Value &&
-                   _healthComponent.CurrentHealth.Value >= _selectedUpgrade.Value.PriceInSeconds;
+                   _healthComponent.CurrentHealth.Value > _selectedUpgrade.Value.PriceInSeconds;
         }
     }
 }

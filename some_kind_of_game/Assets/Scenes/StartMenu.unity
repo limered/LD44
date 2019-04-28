@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -210,6 +210,8 @@ GameObject:
   m_Component:
   - component: {fileID: 164279551}
   - component: {fileID: 164279550}
+  - component: {fileID: 164279552}
+  - component: {fileID: 164279553}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -245,6 +247,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164279552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164279549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8fb8c7908c4d42bef192851093fc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 30
+  CurrentHealth:
+    value: 0
+--- !u!114 &164279553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164279549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1845a34967d3754bbee49666b2db681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradeConfigs:
+  - UpgradeType: 1
+    ActiveThumbnail: {fileID: 21300000, guid: b28afc1a47bdbc748a6bdbccf8baab16, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: df39833cdea94a8499b77567b152b51a,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 1
+  - UpgradeType: 2
+    ActiveThumbnail: {fileID: 21300000, guid: 6f6a2dd9c2bb5b84fa91ad53a52e9022, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 09695674e5ef66c4c9159424874a1866,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 1
+  - UpgradeType: 3
+    ActiveThumbnail: {fileID: 21300000, guid: f76147f0180df344ab509e56a5310d77, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 1724d9fb612ab0f41a029c30b6ed0c58,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 1
+  - UpgradeType: 4
+    ActiveThumbnail: {fileID: 21300000, guid: 2a04131610a94f64088ac4919470ab60, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 31a69277aaf51fa4195ddbd7acc0e53c,
+      type: 3}
+    PriceInSeconds: 5
+    IsAdded:
+      value: 1
 --- !u!1001 &166664139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -479,7 +537,7 @@ Camera:
   m_GameObject: {fileID: 701803067}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
