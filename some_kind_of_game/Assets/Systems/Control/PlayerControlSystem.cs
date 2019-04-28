@@ -5,7 +5,7 @@ using Utils.Unity;
 
 namespace Systems.Control
 {
-    [GameSystem(typeof(FishyMovementSystem))]
+    [GameSystem()]
     public class PlayerControlSystem : GameSystem<PlayerComponent>
     {
         public override void Register(PlayerComponent component)
