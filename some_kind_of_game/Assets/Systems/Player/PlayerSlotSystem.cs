@@ -1,7 +1,9 @@
+using System;
 using System.Linq;
 using SystemBase;
 using Systems.Control;
 using Systems.Movement.Modifier;
+using Systems.UpgradeSystem;
 using UniRx;
 using UnityEngine;
 using Utils.Plugins;
@@ -9,7 +11,7 @@ using Utils.Plugins;
 namespace Systems.Player
 {
     [GameSystem(typeof(PlayerControlSystem))]
-    public class PlayerSlotSystem : GameSystem<PlayerComponent, SlotComponent>
+    public class PlayerSlotSystem : GameSystem<PlayerComponent, SlotComponent, UpgradeConfigComponent>
     {
         private readonly ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>(null);
 
@@ -20,19 +22,6 @@ namespace Systems.Player
 
         public override void Register(SlotComponent component)
         {
-            //add slots to PlayerComponent (Editor & Game)
-            //this is just for usability reasons
-            _player.WhereNotNull()
-            .Subscribe(player =>
-            {
-                var slot = player.Slots.Any(x => x.Component == component)
-                    ? player.Slots.Find(x => x.Component == component)
-                    : new Slot { Component = component };
-                player.Slots.Remove(slot);
-                player.Slots.Add(slot);
-            })
-            .AddTo(component);
-
             //Slot Item selection
             component.SelectedItem
             .Subscribe(name =>
@@ -43,6 +32,46 @@ namespace Systems.Player
                 }
             })
             .AddTo(component);
+        }
+
+        public override void Register(UpgradeConfigComponent component)
+        {
+            _player.WhereNotNull()
+            .Subscribe(player =>
+            {
+                foreach (var config in component.UpgradeConfigs)
+                {
+                    config.IsAdded.WhereIsTrue()
+                    .Subscribe(added =>
+                    {
+                        player.SelectItem(config.UpgradeType.SlotName(), config.UpgradeType.ItemName());
+                    }).AddTo(component);
+                }
+            })
+            .AddTo(component);
+        }
+    }
+
+    public static class UpgradeSlotMapping
+    {
+        public static string SlotName(this UpgradeType type)
+        {
+            switch (type)
+            {
+                case UpgradeType.Rotor: return "TailFin";
+                case UpgradeType.LaserEye: return "Eye";
+                default: return "Default";
+            }
+        }
+
+        public static string ItemName(this UpgradeType type)
+        {
+            switch (type)
+            {
+                case UpgradeType.Rotor: return "Rotor";
+                case UpgradeType.LaserEye: return "Laser";
+                default: return "Default";
+            }
         }
     }
 }
