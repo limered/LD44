@@ -151,7 +151,7 @@ namespace Systems.Shop
         private bool CanBuyUpgrade()
         {
             return !_selectedUpgrade.Value.IsAdded.Value &&
-                   _healthComponent.CurrentHealth.Value >= _selectedUpgrade.Value.PriceInSeconds;
+                   _healthComponent.CurrentHealth.Value > _selectedUpgrade.Value.PriceInSeconds;
         }
     }
 }
