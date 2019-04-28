@@ -10,5 +10,6 @@ namespace Systems.Shop
         public GameObject UpgradeButton;
         public GameObject BuyButton;
         public GameObject SellButton;
+        public GameObject ContinueButton;
     }
 }
