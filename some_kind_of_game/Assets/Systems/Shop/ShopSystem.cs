@@ -114,12 +114,17 @@ namespace Systems.Shop
 
                 var button = upgradeGo.GetComponent<Button>();
                 var upgradeButton = upgradeGo.GetComponent<UpgradeButton>();
-                button.OnClickAsObservable().Subscribe(_ => OnUpgradeClicked(upgradeConfig)).AddTo(button);
+                button.OnClickAsObservable()
+                    .Subscribe(_ => OnUpgradeClicked(upgradeConfig))
+                    .AddTo(button);
 
-                upgradeConfig.IsAdded.AsObservable().Subscribe(_ => OnIsAddedChanged(upgradeButton, upgradeConfig))
-                    .AddTo(_upgradeConfigComponent);
+                upgradeConfig.IsAdded
+                    .Subscribe(_ => OnIsAddedChanged(upgradeButton, upgradeConfig))
+                    .AddTo(upgradeGo);
 
-                _selectedUpgrade.AsObservable().Subscribe(_ => OnSelectedUpgradeChanged(upgradeButton, upgradeConfig)).AddTo(_shopComponent);
+                _selectedUpgrade
+                    .Subscribe(_ => OnSelectedUpgradeChanged(upgradeButton, upgradeConfig))
+                    .AddTo(upgradeGo);
             }
         }
 
