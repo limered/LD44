@@ -1,25 +1,39 @@
 ﻿using System;
+using System.Linq;
 using SystemBase;
+using Systems.Movement.Modifier;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.Movement
 {
     public class FishyMovementComponent : GameComponent
     {
+        public Vector2 AccelerationDefault;
+        public Vector2 MaxSpeedDefault;
+        public float BackwardFrictionFactorDefault;
+        public Action<FishyMovementComponent> HandleInput;
+        public GameObject ColliderObject;
         public Vector2 Acceleration { get; set; }
 
         public Vector2 Velocity { get; set; }
 
-        public Vector2 AccelerationFactor;
-        public Vector2 MaxSpeed;
+        public Vector2 AccelerationFactor => GetComponents<AccelerationModifier>()
+            .Aggregate(AccelerationDefault, (current, modifier) => current + modifier.Summand);
 
-        public float BackwardFrictionFactor;
+        public Vector2 MaxSpeed => GetComponents<MaxSpeedModifier>()
+            .Aggregate(MaxSpeedDefault, (current, modifier) => current + modifier.Summand);
+
+        public float BackwardFrictionFactor => GetComponents<FrictionModifier>()
+            .Aggregate(BackwardFrictionFactorDefault, (current, modifier) => current + modifier.Summand);
 
         public Vector2 ForwardVector { get; set; } = Vector2.right;
 
-        public Action<FishyMovementComponent> HandleInput;
+        // Collisions
+        public ContactFilter2D ContactFilter { get; set; }
+        public Vector2 GroundNormal { get; set; }
 
-        public GameObject ColliderObject;
-
+        [NonSerialized]
+        public ReactiveCommand<RaycastHit2D[]> CollisionDetected = new ReactiveCommand<RaycastHit2D[]>();
     }
 }

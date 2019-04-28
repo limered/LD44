@@ -10,9 +10,8 @@ using UniRx.Operators;
 namespace Systems.Animation
 {
     [GameSystem]
-    public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent>
+    public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent, AlgaeAnimationComponent>
     {
-
         public override void Register(FinAnimationComponent component)
         {
             //initial angle is random
@@ -21,7 +20,7 @@ namespace Systems.Animation
 
             //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
             component.FixedUpdateAsObservable()
-            .Select(_ => Time.fixedDeltaTime)
+            .Select(_ => UnityEngine.Time.fixedDeltaTime)
             .Subscribe(delta =>
             {
                 var angleDelta = ((int)component.Direction * delta * component.WobbleSpeed);
@@ -53,9 +52,50 @@ namespace Systems.Animation
             .AddTo(component);
         }
 
+        public override void Register(AlgaeAnimationComponent component)
+        {
+            //initial angle is random
+            component.Direction = UnityEngine.Random.value > 0.5f ? AlgaeDirection.Left : AlgaeDirection.Right;
+            component.CurrentAngle = UnityEngine.Random.Range(component.MinAngle, component.MaxAngle);
+            component.transform.Rotate(component.RotationAxis, component.CurrentAngle);
+
+            //rotate the fin between -SpreadAngle/2 and +SpreadAngle/2
+            component.FixedUpdateAsObservable()
+            .Select(_ => UnityEngine.Time.fixedDeltaTime)
+            .Subscribe(delta =>
+            {
+                var angleDelta = (int)component.Direction * delta * component.WobbleSpeed;
+
+                if (component.Direction == AlgaeDirection.Left)
+                {
+                    if (component.CurrentAngle + angleDelta <= component.MinAngle)
+                    {
+                        angleDelta = 0;
+                        component.Direction = AlgaeDirection.Right;
+                    }
+
+                    component.CurrentAngle = Math.Max(angleDelta + component.CurrentAngle, component.MinAngle);
+                }
+
+                if (component.Direction == AlgaeDirection.Right)
+                {
+                    if (component.CurrentAngle + angleDelta >= component.MaxAngle)
+                    {
+                        angleDelta = 0;
+                        component.Direction = AlgaeDirection.Left;
+                    }
+
+                    component.CurrentAngle = Math.Min(angleDelta + component.CurrentAngle, component.MaxAngle);
+                }
+
+                component.transform.Rotate(component.RotationAxis, angleDelta);
+            })
+            .AddTo(component);
+        }
+
         public override void Register(BlowFishAnimationComponent component)
         {
-
+            component.Context.Start(new BlowFishState.Swimming(component));
         }
 
         public override void Register(BasicToggleAnimationComponent component)
@@ -67,12 +107,26 @@ namespace Systems.Animation
             .Subscribe()
             .AddTo(component);
 
-            component.SpriteIndexWithoutAnimation
+            component.OnSpriteIndexWithoutAnimation
             .Subscribe(index =>
             {
                 for (var s = 0; s < component.Sprites.Length; s++)
                 {
                     component.Sprites[s].SetActive(s == index);
+                }
+            })
+            .AddTo(component);
+
+            component.OnShowEndSprite
+            .Subscribe(_ =>
+            {
+                if (component.EndSprite)
+                {
+                    for (var s = 0; s < component.Sprites.Length; s++)
+                    {
+                        component.Sprites[s].SetActive(false);
+                    }
+                    component.EndSprite.SetActive(true);
                 }
             })
             .AddTo(component);
@@ -85,30 +139,43 @@ namespace Systems.Animation
             var delta = time / steps;
 
             component.StartAnimation();
+            if (component.EndSprite) component.EndSprite.SetActive(true);
 
             for (var i = 0; i < steps; i++)
             {
+                if (component.CurrentSprite == BasicToggleAnimationComponent.NotAnimating) break;
                 for (var s = 0; s < component.Sprites.Length; s++)
                 {
                     component.Sprites[s].SetActive(component.CurrentSprite == s);
                 }
 
                 yield return new WaitForSeconds(delta);
+                if (component.CurrentSprite == BasicToggleAnimationComponent.NotAnimating) break;
+
                 component.CurrentSprite += component.Reverse ? -1 : 1;
                 component.CurrentSprite = Math.Max(0, component.CurrentSprite);
                 component.CurrentSprite = Math.Min(component.CurrentSprite, steps - 1);
-            }
 
-            if (component.EndSprite)
-            {
-                for (var s = 0; s < component.Sprites.Length; s++)
+                if (i + 1 == steps && component.IsLoop)
                 {
-                    component.Sprites[s].SetActive(false);
+                    i = -1;
+                    component.CurrentSprite = component.Reverse ? steps - 1 : 0;
                 }
-                component.EndSprite.SetActive(true);
             }
 
-            component.StopAnimation();
+            if (component.CurrentSprite != BasicToggleAnimationComponent.NotAnimating)
+            {
+                if (component.EndSprite)
+                {
+                    for (var s = 0; s < component.Sprites.Length; s++)
+                    {
+                        component.Sprites[s].SetActive(false);
+                    }
+                    component.EndSprite.SetActive(true);
+                }
+
+                component.StopAnimation();
+            }
         }
     }
 }

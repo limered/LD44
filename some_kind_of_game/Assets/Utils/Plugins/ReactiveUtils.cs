@@ -243,6 +243,13 @@ namespace Utils.Plugins
         }
 
         #endregion Filter
+
+        #region Reactive Properties
+        public static void Fire(this ReactiveProperty<Unit> prop)
+        {
+            prop.SetValueAndForceNotify(Unit.Default);
+        }
+        #endregion
     }
 
     public enum LogLevel

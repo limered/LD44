@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SystemBase;
 using UniRx;
 using UnityEngine;
+using Utils.Plugins;
 
 namespace Systems.Animation
 {
@@ -14,15 +15,23 @@ namespace Systems.Animation
         public GameObject[] Sprites;
         public GameObject EndSprite;
         public bool Reverse;
+        public bool IsLoop;
 
         #region Helpers
-        public IntReactiveProperty SpriteIndexWithoutAnimation { get; } = new IntReactiveProperty(0);
+        public IntReactiveProperty OnSpriteIndexWithoutAnimation { get; } = new IntReactiveProperty(0);
 
-        public int CurrentSprite { get; set; } = NotAnimating;
+        public ReactiveProperty<Unit> OnShowEndSprite { get; } = new ReactiveProperty<Unit>();
+
+        public int CurrentSprite = NotAnimating;
 
         public void SetSpriteWithoutAnimation(int index)
         {
-            SpriteIndexWithoutAnimation.Value = index;
+            OnSpriteIndexWithoutAnimation.Value = index;
+        }
+
+        public void ShowEndSprite()
+        {
+            OnShowEndSprite.Value = Unit.Default;
         }
 
         public void StartAnimation()
@@ -33,6 +42,7 @@ namespace Systems.Animation
         public void StopAnimation()
         {
             CurrentSprite = NotAnimating;
+            OnShowEndSprite.Fire();
         }
         #endregion
     }

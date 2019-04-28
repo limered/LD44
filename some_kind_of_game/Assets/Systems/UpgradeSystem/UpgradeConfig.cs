@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Systems.UpgradeSystem
 {
+    [Serializable]
     public class UpgradeConfig
     {
-        public Type UpgradeComponentType;
+        public UpgradeType UpgradeType;
         public GameObject Thumbnails;
         public int PriceInSeconds;
+        public bool IsAdded;
     }
 }
