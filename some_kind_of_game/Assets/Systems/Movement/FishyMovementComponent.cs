@@ -2,6 +2,7 @@
 using System.Linq;
 using SystemBase;
 using Systems.Movement.Modifier;
+using UniRx;
 using UnityEngine;
 
 namespace Systems.Movement
@@ -27,5 +28,12 @@ namespace Systems.Movement
             .Aggregate(BackwardFrictionFactorDefault, (current, modifier) => current + modifier.Summand);
 
         public Vector2 ForwardVector { get; set; } = Vector2.right;
+
+        // Collisions
+        public ContactFilter2D ContactFilter { get; set; }
+        public Vector2 GroundNormal { get; set; }
+
+        [NonSerialized]
+        public ReactiveCommand<RaycastHit2D[]> CollisionDetected = new ReactiveCommand<RaycastHit2D[]>();
     }
 }
