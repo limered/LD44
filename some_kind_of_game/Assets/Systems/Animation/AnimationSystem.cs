@@ -12,7 +12,6 @@ namespace Systems.Animation
     [GameSystem]
     public class AnimationSystem : GameSystem<BasicToggleAnimationComponent, FinAnimationComponent, BlowFishAnimationComponent>
     {
-
         public override void Register(FinAnimationComponent component)
         {
             //initial angle is random
@@ -67,12 +66,26 @@ namespace Systems.Animation
             .Subscribe()
             .AddTo(component);
 
-            component.SpriteIndexWithoutAnimation
+            component.OnSpriteIndexWithoutAnimation
             .Subscribe(index =>
             {
                 for (var s = 0; s < component.Sprites.Length; s++)
                 {
                     component.Sprites[s].SetActive(s == index);
+                }
+            })
+            .AddTo(component);
+
+            component.OnShowEndSprite
+            .Subscribe(_ =>
+            {
+                if (component.EndSprite)
+                {
+                    for (var s = 0; s < component.Sprites.Length; s++)
+                    {
+                        component.Sprites[s].SetActive(false);
+                    }
+                    component.EndSprite.SetActive(true);
                 }
             })
             .AddTo(component);
@@ -85,6 +98,7 @@ namespace Systems.Animation
             var delta = time / steps;
 
             component.StartAnimation();
+            if (component.EndSprite) component.EndSprite.SetActive(true);
 
             for (var i = 0; i < steps; i++)
             {
@@ -100,6 +114,12 @@ namespace Systems.Animation
                 component.CurrentSprite += component.Reverse ? -1 : 1;
                 component.CurrentSprite = Math.Max(0, component.CurrentSprite);
                 component.CurrentSprite = Math.Min(component.CurrentSprite, steps - 1);
+
+                if (i + 1 == steps && component.IsLoop)
+                {
+                    i = -1;
+                    component.CurrentSprite = component.Reverse ? steps-1 : 0;
+                }
             }
 
             if (component.CurrentSprite != BasicToggleAnimationComponent.NotAnimating)
