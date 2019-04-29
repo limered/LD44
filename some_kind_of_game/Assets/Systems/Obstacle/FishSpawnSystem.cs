@@ -33,12 +33,15 @@ namespace Systems.Obstacle
 
         private void SpawnPrefab(FishSpawnerComponent component)
         {
-            var rnd = Random.value * component.SpawnPrefabs.Length;
-            Object.Instantiate(
-                    component.SpawnPrefabs[(int) rnd], 
-                    component.transform.position, 
-                    component.transform.rotation, 
-                    component.transform);
+            for (var i = 0; i < component.Amount; i++)
+            {
+                var rnd = Random.value * component.SpawnPrefabs.Length;
+                Object.Instantiate(
+                        component.SpawnPrefabs[(int)rnd],
+                        component.transform.position + (Vector3)(UnityEngine.Random.insideUnitCircle * component.Radius),
+                        component.transform.rotation,
+                        component.transform);
+            }
         }
 
         public override void Register(IntervalSpawnerComponent component)
