@@ -3,6 +3,7 @@ using SystemBase;
 using SystemBase.StateMachineBase;
 using Systems.Control;
 using Systems.Movement;
+using Systems.Movement.Modifier;
 using Systems.Obstacle.JellyFishStates;
 using UniRx;
 using UniRx.Triggers;
@@ -68,6 +69,8 @@ namespace Systems.Obstacle
             //adhering by matching player position
             _player.WhereNotNull().Subscribe(player =>
             {
+                AccelerationModifier accModifier = null;
+                MaxSpeedModifier maxSpeedModifier = null;
                 var onlyOne = new SerialDisposable();
 
                 component.StateContext.AfterStateChange
@@ -75,6 +78,12 @@ namespace Systems.Obstacle
                 {
                     if (state is Adhering)
                     {
+                        accModifier = player.gameObject.AddComponent<AccelerationModifier>();
+                        accModifier.Summand = component.SlowDownAcceleration;
+
+                        maxSpeedModifier = player.gameObject.AddComponent<MaxSpeedModifier>();
+                        maxSpeedModifier.Summand = component.SlowDownSpeed;
+
                         onlyOne.Disposable = component.FixedUpdateAsObservable()
                                         .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
                                         .Where(x => component.StateContext.CurrentState.Value is Adhering)
@@ -88,6 +97,16 @@ namespace Systems.Obstacle
                     }
                     else
                     {
+                        if (accModifier)
+                        {
+                            GameObject.Destroy(accModifier);
+                            accModifier = null;
+                        }
+                        if (maxSpeedModifier)
+                        {
+                            GameObject.Destroy(maxSpeedModifier);
+                            maxSpeedModifier = null;
+                        }
                         onlyOne.Disposable = null;
                     }
                 })
