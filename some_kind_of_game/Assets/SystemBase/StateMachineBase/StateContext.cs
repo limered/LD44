@@ -32,15 +32,15 @@ namespace SystemBase.StateMachineBase
 
             AfterStateChange.Execute(state);
 
-            Debug.LogWarning("State: " + state.GetType());
-
             return true;
         }
 
         public void Start(BaseState<T> initialState)
         {
             CurrentState = new ReactiveProperty<BaseState<T>>(initialState);
+            BevoreStateChange.Execute(CurrentState.Value);
             CurrentState.Value.Enter(this);
+            AfterStateChange.Execute(initialState);
         }
     }
 }

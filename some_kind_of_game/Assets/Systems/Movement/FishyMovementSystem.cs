@@ -71,7 +71,6 @@ namespace Systems.Movement
                 var currentNormal = hit.normal;
                 if (currentNormal.y > MinGroundNormalY && isVertical)
                 {
-
                     component.GroundNormal = currentNormal;
                     currentNormal.x = 0;
                 }
@@ -103,8 +102,8 @@ namespace Systems.Movement
 
         private static void ApplyFriction(FishyMovementComponent component)
         {
-            var backFricktion = component.Velocity * -component.BackwardFrictionFactor;
-            component.Velocity = component.Velocity + backFricktion * UnityEngine.Time.fixedDeltaTime;
+            var backFriction = component.Velocity * -component.BackwardFrictionFactor;
+            component.Velocity = component.Velocity + backFriction * UnityEngine.Time.fixedDeltaTime;
         }
 
         private static void ApplyAnimationToModel(FishyMovementComponent component)
