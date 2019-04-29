@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7162140620903615618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7162140620903615616}
+  - component: {fileID: 7162140620903615617}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7162140620903615616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162140620903615618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7162140620903615617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162140620903615618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc230bb4099941f49832cf1ca1a0ee31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPitchChange: 0.25
+  Sounds:
+  - Name: Background
+    File: {fileID: 8300000, guid: d57e6145d41d8b94cac0651e6c3afef0, type: 3}
+    Volume: 0.5
+  - Name: Fish_Dying
+    File: {fileID: 8300000, guid: 88c5e3b6f28708b4987f8fc27eab64d4, type: 3}
+    Volume: 0.5
+  - Name: Kailax_Dying
+    File: {fileID: 8300000, guid: 48a81826e80102042afd1264fa150bbd, type: 3}
+    Volume: 0.5
+  - Name: Fish_Hit
+    File: {fileID: 8300000, guid: 99ae05787558d9346bb7bd17c93c85de, type: 3}
+    Volume: 0.5
+  - Name: Flosse
+    File: {fileID: 8300000, guid: e85fbc681529a284dbeb3318e520379a, type: 3}
+    Volume: 0.5
+  - Name: SellBuy
+    File: {fileID: 8300000, guid: 54a0abd60b21d9a4290199e96f4ddbdd, type: 3}
+    Volume: 0.5
+  - Name: Fish
+    File: {fileID: 8300000, guid: 5b8b773ad4bfd0c49864ebc9f5f4639f, type: 3}
+    Volume: 0.5
+  - Name: Qualle
+    File: {fileID: 8300000, guid: fa2f18690b575884e9f7084800172b2c, type: 3}
+    Volume: 0.5
+  - Name: Rotor1
+    File: {fileID: 8300000, guid: 9cf8077c32a1a234795f8b95ec05ad96, type: 3}
+    Volume: 0.5
+  - Name: Rotor2
+    File: {fileID: 8300000, guid: 472d88741a425c7468f6579b898a0fc3, type: 3}
+    Volume: 0.5
+  - Name: Uzi
+    File: {fileID: 8300000, guid: 35728e96c225a1c48be45c826d3d4502, type: 3}
+    Volume: 0.1
+  - Name: Whale
+    File: {fileID: 8300000, guid: 750316dbc624f4b429cfe135c9d1655e, type: 3}
+    Volume: 0.5
+  - Name: YPWYL1
+    File: {fileID: 8300000, guid: 951909455d70f73409ea4aa07f11a992, type: 3}
+    Volume: 0.75
+  - Name: YPWYL2
+    File: {fileID: 8300000, guid: 20770ec39abebfa488f39d14115d075c, type: 3}
+    Volume: 0.5
+  - Name: Music
+    File: {fileID: 8300000, guid: 795b1c751940848428c50e0a1257015b, type: 3}
+    Volume: 0.1

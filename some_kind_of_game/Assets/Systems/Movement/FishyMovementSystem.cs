@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SystemBase;
+using StrongSystems.Audio;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -70,6 +71,7 @@ namespace Systems.Movement
             if (hitBufferList.Any())
             {
                 component.CollisionDetected.Execute(hitBufferList);
+                //"Fish_Hit".Play();
             }
 
             foreach (var hit in hitBufferList)

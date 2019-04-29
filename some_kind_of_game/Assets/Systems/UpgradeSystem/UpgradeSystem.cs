@@ -24,9 +24,11 @@ namespace Systems.UpgradeSystem
         {
             upgrades.UpgradeConfigs.ForEach(config =>
                 {
-                    if (config.IsAdded.Value)
+                    if (!config.IsAdded.Value) return;
+                    var type = ResolveUpgradeComponentType(config.UpgradeType);
+                    if(type != null)
                     {
-                        playerComponent.gameObject.AddComponent(ResolveUpgradeComponentType(config.UpgradeType));
+                        playerComponent.gameObject.AddComponent(type);
                     }
                 });
         }
@@ -47,7 +49,7 @@ namespace Systems.UpgradeSystem
                 case UpgradeType.Delfin:
                     return typeof(DelfinComponent);
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                    return null;
             }
         }
     }
