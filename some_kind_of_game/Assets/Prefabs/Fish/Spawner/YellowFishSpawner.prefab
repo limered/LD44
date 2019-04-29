@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c1375c30358aa419321968d715fdcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SopawnPrefab: {fileID: 7756291309452877641, guid: 00f90dc2957f145fb9a38ba5a5e63469,
-    type: 3}
+  SpawnPrefabs:
+  - {fileID: 7756291309452877641, guid: 00f90dc2957f145fb9a38ba5a5e63469, type: 3}
   Room: {fileID: 0}
   TriggerOverwrite: {fileID: 0}

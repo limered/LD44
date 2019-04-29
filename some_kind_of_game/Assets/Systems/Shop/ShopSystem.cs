@@ -24,6 +24,7 @@ namespace Systems.Shop
         private HealthComponent _healthComponent;
 
         private readonly FloatReactiveProperty _internalHealthValue = new FloatReactiveProperty(0);
+        private int ItemsToShow = 0;
 
         public override void Register(ShopComponent component)
         {
@@ -34,6 +35,7 @@ namespace Systems.Shop
                 Value = _internalHealthValue.Value,
                 ComponentToChange = _healthComponent,
             });
+            ItemsToShow++;
         }
 
         public override void Register(UpgradeConfigComponent component)
@@ -108,8 +110,13 @@ namespace Systems.Shop
         private void CreateUpgradeButtons()
         {
             var upgradeConfigs = _upgradeConfigComponent.GetComponent<UpgradeConfigComponent>().UpgradeConfigs;
+
+            var i = 0;
             foreach (var upgradeConfig in upgradeConfigs)
             {
+                if (i > ItemsToShow) break;
+                i++;
+
                 var upgradeGo = Object.Instantiate(_shopComponent.UpgradeButton, _shopComponent.UpgradeContainer.transform);
 
                 var button = upgradeGo.GetComponent<Button>();
