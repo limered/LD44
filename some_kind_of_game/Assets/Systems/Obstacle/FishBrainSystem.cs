@@ -3,6 +3,7 @@ using SystemBase;
 using Systems.Animation;
 using Systems.Control;
 using Systems.Movement;
+using StrongSystems.Audio;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -21,7 +22,11 @@ namespace Systems.Obstacle
             collider.OnTriggerStay2DAsObservable()
                 .Where(d => d.attachedRigidbody)
                 .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
-                .Do(_ => animation.Grow())
+                .Do(_ =>
+                {
+                    "Blowfish".Play();
+                    animation.Grow();
+                })
                 .Throttle(TimeSpan.FromSeconds(5))
                 .Subscribe(_ =>
                 {
