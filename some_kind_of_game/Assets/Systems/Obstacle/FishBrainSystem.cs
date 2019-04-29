@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using SystemBase;
-using UnityEngine;
+using Systems.Animation;
+using Systems.Control;
 using UniRx;
 using UniRx.Triggers;
-using UniRx.Operators;
-using Systems.Animation;
+using UnityEngine;
 
 namespace Systems.Obstacle
 {
@@ -15,10 +13,11 @@ namespace Systems.Obstacle
     {
         public override void Register(BlowFishBrainComponent component)
         {
-            var collider = component.GetComponent<Collider2D>();
+            var collider = component.BlowUpCollider;
             var animation = component.GetComponent<BlowFishAnimationComponent>();
 
             collider.OnTriggerStay2DAsObservable()
+                .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
                 .Do(_ => animation.Grow())
                 .Throttle(TimeSpan.FromSeconds(5))
                 .Subscribe(_ =>
@@ -26,8 +25,6 @@ namespace Systems.Obstacle
                     animation.Shrink();
                 })
                 .AddTo(component);
-
         }
     }
-
 }
