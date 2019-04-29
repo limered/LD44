@@ -19,6 +19,7 @@ namespace Systems.Obstacle
 
             //Grow when in range, then Shrink after some time
             collider.OnTriggerStay2DAsObservable()
+                .Where(d => d.attachedRigidbody)
                 .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
                 .Do(_ => animation.Grow())
                 .Throttle(TimeSpan.FromSeconds(5))
