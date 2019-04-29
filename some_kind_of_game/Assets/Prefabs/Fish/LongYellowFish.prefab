@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3223090538479220704}
   - component: {fileID: 495785879417209073}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 2354974308621667516}
   - component: {fileID: 4785366343180591067}
   - component: {fileID: 759823783}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: long_fish_yellow_flosse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 5821175112209472703}
   - component: {fileID: 4605303841889433982}
   - component: {fileID: 875614091}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: long_fish_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 1707290061}
   - component: {fileID: 1707290059}
   - component: {fileID: 1707290060}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LongYellowFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,8 +414,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6751481932705965010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.92, y: -4.06, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 5821175112209472703}
   - {fileID: 3223090538479220704}

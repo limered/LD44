@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680781237500031}
   - component: {fileID: 2254680781237500024}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_flosse_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2254680781531673610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sizing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,11 @@ GameObject:
   - component: {fileID: 2254680781872028680}
   - component: {fileID: 2254680781872028687}
   - component: {fileID: 2254680781872028681}
-  m_Layer: 0
+  - component: {fileID: 1348103608}
+  - component: {fileID: 1348103606}
+  - component: {fileID: 1348103607}
+  - component: {fileID: 1348103611}
+  m_Layer: 10
   m_Name: BlowFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 2254680781872028685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.302483, y: -12.232624, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 2254680782663233781}
   - {fileID: 2254680781531673610}
@@ -165,7 +169,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.15, y: 0}
   serializedVersion: 2
-  m_Radius: 5.15
+  m_Radius: 13
 --- !u!114 &2254680781872028687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3466ded5f67bb4876897b9610bf1e37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlowUpCollider: {fileID: 2254680781872028680}
 --- !u!114 &2254680781872028681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +197,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GrowAnimation: {fileID: 2254680782945772534}
   ShrinkAnimation: {fileID: 2254680782344718451}
+--- !u!50 &1348103608
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1348103606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea91ba08c5a983a42a0ee3d05d3626c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplier: 0
+  Direction: {x: -1, y: 0}
+--- !u!114 &1348103607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab313844899744139d85341b8cbfd620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AccelerationDefault: {x: 1, y: 1}
+  MaxSpeedDefault: {x: 5, y: 5}
+  BackwardFrictionFactorDefault: 1
+  ColliderObject: {fileID: 0}
+--- !u!70 &1348103611
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 13, y: 1}
+  m_Direction: 0
 --- !u!1 &2254680782015368674
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782015368675}
   - component: {fileID: 2254680782015368700}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782184088287}
   - component: {fileID: 2254680782184088280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782344718450}
   - component: {fileID: 2254680782344718451}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShrinkAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f06fbae554849ff85b510b704a511e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartAnimationOnAwake: 0
   AnimationTime: 0.3
   Sprites:
   - {fileID: 2254680782663233780}
@@ -369,6 +442,8 @@ MonoBehaviour:
   - {fileID: 2254680782480950528}
   EndSprite: {fileID: 0}
   Reverse: 1
+  IsLoop: 0
+  CurrentSprite: -1
 --- !u!1 &2254680782480950528
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782480950529}
   - component: {fileID: 2254680782480950530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +532,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2254680782663233781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Swimming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782945772533}
   - component: {fileID: 2254680782945772534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrowAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,6 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f06fbae554849ff85b510b704a511e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartAnimationOnAwake: 0
   AnimationTime: 0.3
   Sprites:
   - {fileID: 2254680782663233780}
@@ -532,6 +608,8 @@ MonoBehaviour:
   - {fileID: 2254680782480950528}
   EndSprite: {fileID: 0}
   Reverse: 0
+  IsLoop: 0
+  CurrentSprite: -1
 --- !u!1 &2254680782954950530
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782954950531}
   - component: {fileID: 2254680782954950556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680782979790330}
   - component: {fileID: 2254680782979790331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254680783156953354}
   - component: {fileID: 2254680783156953355}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blowfish_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
