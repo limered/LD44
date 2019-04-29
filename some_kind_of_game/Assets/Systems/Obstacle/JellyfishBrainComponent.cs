@@ -16,8 +16,7 @@ namespace Systems.Obstacle
     {
         public float Multiplier = 1;
         public Vector2 Direction = Vector2.left;
-        public Vector2 SlowDownAcceleration = -new Vector2(20, 10);
-        public Vector2 SlowDownSpeed = -new Vector2(20, 10);
+        public float SlowDownFriction = 6;
 
         public float StandingTime = 2f;
         public float SwimmingTime = 6f;

@@ -349,8 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 1
   Direction: {x: -1, y: 0}
-  SlowDownAcceleration: {x: -15, y: -2}
-  SlowDownSpeed: {x: -15, y: -5}
+  SlowDownFriction: 5
   StandingTime: 2
   SwimmingTime: 6
   SwimmingAwayTime: 3

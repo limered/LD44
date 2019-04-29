@@ -69,8 +69,8 @@ namespace Systems.Obstacle
             //adhering by matching player position
             _player.WhereNotNull().Subscribe(player =>
             {
-                AccelerationModifier accModifier = null;
-                MaxSpeedModifier maxSpeedModifier = null;
+                FrictionModifier slowModifier = null;
+
                 var onlyOne = new SerialDisposable();
 
                 component.StateContext.AfterStateChange
@@ -78,11 +78,8 @@ namespace Systems.Obstacle
                 {
                     if (state is Adhering)
                     {
-                        accModifier = player.gameObject.AddComponent<AccelerationModifier>();
-                        accModifier.Summand = component.SlowDownAcceleration;
-
-                        maxSpeedModifier = player.gameObject.AddComponent<MaxSpeedModifier>();
-                        maxSpeedModifier.Summand = component.SlowDownSpeed;
+                        slowModifier = player.gameObject.AddComponent<FrictionModifier>();
+                        slowModifier.Summand = component.SlowDownFriction;
 
                         onlyOne.Disposable = component.FixedUpdateAsObservable()
                                         .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
@@ -97,16 +94,12 @@ namespace Systems.Obstacle
                     }
                     else
                     {
-                        if (accModifier)
+                        if (slowModifier)
                         {
-                            GameObject.Destroy(accModifier);
-                            accModifier = null;
+                            GameObject.Destroy(slowModifier);
+                            slowModifier = null;
                         }
-                        if (maxSpeedModifier)
-                        {
-                            GameObject.Destroy(maxSpeedModifier);
-                            maxSpeedModifier = null;
-                        }
+
                         onlyOne.Disposable = null;
                     }
                 })
