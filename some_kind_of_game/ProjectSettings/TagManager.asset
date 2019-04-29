@@ -38,8 +38,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind Background
+    uniqueID: 4066200751
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Behind Sand
+    uniqueID: 2395893527
+    locked: 0
+  - name: Sand
+    uniqueID: 3286124821
     locked: 0
   - name: Background
     uniqueID: 1518814109
