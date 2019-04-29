@@ -32,7 +32,6 @@ namespace Systems.Obstacle
             .Where(state => !(state is Adhering))
             .Subscribe(state =>
             {
-                Debug.Log("NOT Adhering: " + state.GetType().Name);
                 var timeInState = TimeSpan.FromSeconds(
                     state is Standing
                         ? component.StandingTime
