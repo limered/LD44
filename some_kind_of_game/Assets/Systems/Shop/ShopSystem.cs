@@ -29,13 +29,14 @@ namespace Systems.Shop
         public override void Register(ShopComponent component)
         {
             _shopComponent = component;
+
+            if (_healthComponent.CurrentHealth.Value > 0) ItemsToShow++;
             FinishRegistration();
             MessageBroker.Default.Publish(new HealthActSet
             {
                 Value = _internalHealthValue.Value,
                 ComponentToChange = _healthComponent,
             });
-            ItemsToShow++;
         }
 
         public override void Register(UpgradeConfigComponent component)

@@ -1,7 +1,12 @@
-﻿using SystemBase;
+﻿using System;
+using SystemBase;
+using Systems.GameState.Messages;
+using Systems.Health.Events;
 using Systems.Movement;
 using GameState.States;
+using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 using Utils.Unity;
 
@@ -13,6 +18,22 @@ namespace Systems.Control
         public override void Register(PlayerComponent component)
         {
             component.GetComponent<FishyMovementComponent>().HandleInput = HandlePlayerInput;
+
+            MessageBroker.Default.Receive<HealthEvtReachedZero>()
+                .Subscribe(zero => EndGame(component))
+                .AddTo(component);
+        }
+
+        private void EndGame(PlayerComponent component)
+        {
+            MessageBroker.Default.Publish(new GameMsgPause());
+
+            Observable.Timer(TimeSpan.FromSeconds(3))
+                .Take(1)
+                .Subscribe(l =>
+                {
+                    SceneManager.LoadScene("Shop");
+                });
         }
 
         private static void HandlePlayerInput(FishyMovementComponent component)
