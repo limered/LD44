@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8fb8c7908c4d42bef192851093fc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 30
+  MaxHealth: 40
   CurrentHealth:
     value: 0
 --- !u!114 &2075845134006388068
@@ -79,21 +79,21 @@ MonoBehaviour:
     ActiveThumbnail: {fileID: 21300000, guid: 2e3531a6ba626d6409db3cff53c4a4a8, type: 3}
     InactiveThumbnail: {fileID: 21300000, guid: 0c368fe88847e6046bd2a8e49549a8e5,
       type: 3}
-    PriceInSeconds: 5
+    PriceInSeconds: 8
     IsAdded:
       value: 0
   - UpgradeType: 1
     ActiveThumbnail: {fileID: 21300000, guid: b28afc1a47bdbc748a6bdbccf8baab16, type: 3}
     InactiveThumbnail: {fileID: 21300000, guid: df39833cdea94a8499b77567b152b51a,
       type: 3}
-    PriceInSeconds: 13
+    PriceInSeconds: 15
     IsAdded:
       value: 0
   - UpgradeType: 3
     ActiveThumbnail: {fileID: 21300000, guid: f76147f0180df344ab509e56a5310d77, type: 3}
     InactiveThumbnail: {fileID: 21300000, guid: 1724d9fb612ab0f41a029c30b6ed0c58,
       type: 3}
-    PriceInSeconds: 7
+    PriceInSeconds: 9
     IsAdded:
       value: 0
   - UpgradeType: 4
