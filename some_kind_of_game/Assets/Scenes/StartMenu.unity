@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1015,6 +1015,97 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1386566171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2075845134006388071, guid: 018ace489b3812945a0ce17a98aa2d6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 130245191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1386566172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386566171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc230bb4099941f49832cf1ca1a0ee31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPitchChange: 0.25
+  Sounds:
+  - Name: Background
+    File: {fileID: 8300000, guid: d57e6145d41d8b94cac0651e6c3afef0, type: 3}
+    Volume: 0.5
+  - Name: Fish_Dying
+    File: {fileID: 8300000, guid: 88c5e3b6f28708b4987f8fc27eab64d4, type: 3}
+    Volume: 0.5
+  - Name: Kailax_Dying
+    File: {fileID: 8300000, guid: 48a81826e80102042afd1264fa150bbd, type: 3}
+    Volume: 0.5
+  - Name: Fish_Hit
+    File: {fileID: 8300000, guid: 99ae05787558d9346bb7bd17c93c85de, type: 3}
+    Volume: 0.5
+  - Name: Flosse
+    File: {fileID: 8300000, guid: e85fbc681529a284dbeb3318e520379a, type: 3}
+    Volume: 0.5
+  - Name: SellBuy
+    File: {fileID: 8300000, guid: 54a0abd60b21d9a4290199e96f4ddbdd, type: 3}
+    Volume: 0.5
+  - Name: Fish
+    File: {fileID: 8300000, guid: 5b8b773ad4bfd0c49864ebc9f5f4639f, type: 3}
+    Volume: 0.5
+  - Name: Qualle
+    File: {fileID: 8300000, guid: fa2f18690b575884e9f7084800172b2c, type: 3}
+    Volume: 0.5
+  - Name: Rotor1
+    File: {fileID: 8300000, guid: 9cf8077c32a1a234795f8b95ec05ad96, type: 3}
+    Volume: 0.5
+  - Name: Rotor2
+    File: {fileID: 8300000, guid: 472d88741a425c7468f6579b898a0fc3, type: 3}
+    Volume: 0.5
+  - Name: Uzi
+    File: {fileID: 8300000, guid: 35728e96c225a1c48be45c826d3d4502, type: 3}
+    Volume: 0.1
+  - Name: Whale
+    File: {fileID: 8300000, guid: 750316dbc624f4b429cfe135c9d1655e, type: 3}
+    Volume: 0.5
+  - Name: YPWYL1
+    File: {fileID: 8300000, guid: 951909455d70f73409ea4aa07f11a992, type: 3}
+    Volume: 0.75
+  - Name: YPWYL2
+    File: {fileID: 8300000, guid: 20770ec39abebfa488f39d14115d075c, type: 3}
+    Volume: 0.5
+  - Name: Music
+    File: {fileID: 8300000, guid: 795b1c751940848428c50e0a1257015b, type: 3}
+    Volume: 0.1
+--- !u!114 &1386566175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386566171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7cf3821d899448c937efeea7026a710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Music
+  Source: {fileID: 8991707455353323366, guid: af154597f5b408643b05d705654312fb, type: 3}
+--- !u!114 &1386566177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386566171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c2e66ce0eb3db42a11c0fe34bbcfb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1618004337
 GameObject:
   m_ObjectHideFlags: 0

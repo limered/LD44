@@ -1,6 +1,7 @@
 using System;
 using SystemBase;
 using Systems.Control;
+using StrongSystems.Audio;
 using UniRx;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,6 +28,7 @@ namespace Systems.PlayerUpgrades.Mouth
         private static void Shoot(UziComponent component)
         {
             Object.Instantiate(component.BulletPrefab, component.BulletSpawnPoint.transform.position, Quaternion.identity);
+            "Uzi".Play();
         }
     }
 }
