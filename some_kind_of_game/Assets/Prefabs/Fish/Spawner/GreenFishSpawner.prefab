@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenFishSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8064367485609552567, guid: 445a964a938298f4f9c39cfc0a55f57f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: ac4239c825fb9ed439a3fb975f04fbe3, type: 3}
     - target: {fileID: 8064367485609552560, guid: 445a964a938298f4f9c39cfc0a55f57f,
         type: 3}
       propertyPath: m_LocalPosition.x
