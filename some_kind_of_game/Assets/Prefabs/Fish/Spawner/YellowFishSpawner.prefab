@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPrefabs:
   - {fileID: 7756291309452877641, guid: 00f90dc2957f145fb9a38ba5a5e63469, type: 3}
-  Room: {fileID: 0}
+  Amount: 1
+  Radius: 0
   TriggerOverwrite: {fileID: 0}

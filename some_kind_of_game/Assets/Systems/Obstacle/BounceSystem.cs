@@ -26,10 +26,13 @@ namespace Systems.Obstacle
                 .OnTriggerEnter2DAsObservable()
                 .Subscribe(coll =>
                 {
-                    var mov = coll.attachedRigidbody.GetComponent<FishyMovementComponent>();
-                    if (mov)
+                    if (coll.attachedRigidbody)
                     {
-                        mov.AddForce(mov.Velocity.magnitude * (mov.transform.position - component.transform.position).normalized * component.Multiplier);
+                        var mov = coll.attachedRigidbody.GetComponent<FishyMovementComponent>();
+                        if (mov)
+                        {
+                            mov.AddForce(mov.Velocity.magnitude * (mov.transform.position - component.transform.position).normalized * component.Multiplier);
+                        }
                     }
                 })
                 .AddTo(component);

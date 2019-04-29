@@ -11,9 +11,15 @@ namespace Systems.Obstacle
         public uint Amount = 1;
 
         [Range(0, 100)]
-        public float Radius = 10f;
+        public float Radius = 0f;
 
-        public RoomComponent Room;
+        public RoomComponent Room
+        {
+            get
+            {
+                return gameObject.GetComponentInParent<RoomComponent>();
+            }
+        }
         public Collider2D TriggerOverwrite;
     }
 }
