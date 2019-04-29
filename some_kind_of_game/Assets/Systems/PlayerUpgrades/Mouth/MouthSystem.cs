@@ -21,6 +21,7 @@ namespace Systems.PlayerUpgrades.Mouth
         public override void Register(UziComponent component)
         {
             Observable.Interval(TimeSpan.FromMilliseconds(component.FireInterval))
+                .Where(l => component.isActiveAndEnabled)
                 .Subscribe(l => Shoot(component))
                 .AddTo(component);
         }
