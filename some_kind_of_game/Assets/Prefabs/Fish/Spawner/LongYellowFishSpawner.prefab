@@ -84,5 +84,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6751481932705965010, guid: 177a0ebd5334b426db17af8a39f77a80,
         type: 3}
+    - target: {fileID: 8064367485609552561, guid: 445a964a938298f4f9c39cfc0a55f57f,
+        type: 3}
+      propertyPath: Radius
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 445a964a938298f4f9c39cfc0a55f57f, type: 3}
