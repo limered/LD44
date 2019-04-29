@@ -48,6 +48,14 @@ namespace Systems.Obstacle
         {
             if (component.TriggerOverwrite)
             {
+                SpawnPrefab(component);
+
+                component.TriggerOverwrite.OnTriggerEnter2DAsObservable()
+                    .Take(1)
+                    .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
+                    .Subscribe(d => SpawnPrefab(component))
+                    .AddTo(component);
+
                 component.TriggerOverwrite.OnTriggerStay2DAsObservable()
                     .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
                     .Sample(TimeSpan.FromSeconds(component.Interval))

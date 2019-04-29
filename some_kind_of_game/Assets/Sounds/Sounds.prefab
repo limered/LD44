@@ -53,7 +53,7 @@ MonoBehaviour:
     Volume: 0.5
   - Name: Kailax_Dying
     File: {fileID: 8300000, guid: 48a81826e80102042afd1264fa150bbd, type: 3}
-    Volume: 0.5
+    Volume: 0.718
   - Name: Fish_Hit
     File: {fileID: 8300000, guid: 99ae05787558d9346bb7bd17c93c85de, type: 3}
     Volume: 0.5
@@ -77,10 +77,10 @@ MonoBehaviour:
     Volume: 0.5
   - Name: Uzi
     File: {fileID: 8300000, guid: 35728e96c225a1c48be45c826d3d4502, type: 3}
-    Volume: 0.1
+    Volume: 0.03
   - Name: Whale
     File: {fileID: 8300000, guid: 750316dbc624f4b429cfe135c9d1655e, type: 3}
-    Volume: 0.5
+    Volume: 1
   - Name: YPWYL1
     File: {fileID: 8300000, guid: 951909455d70f73409ea4aa07f11a992, type: 3}
     Volume: 0.75
@@ -90,3 +90,6 @@ MonoBehaviour:
   - Name: Music
     File: {fileID: 8300000, guid: 795b1c751940848428c50e0a1257015b, type: 3}
     Volume: 0.1
+  - Name: Blowfish
+    File: {fileID: 8300000, guid: e2aace0978fcfec4aae2665e7820ef10, type: 3}
+    Volume: 0.837
