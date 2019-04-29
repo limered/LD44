@@ -30,7 +30,7 @@ namespace Systems.Obstacle
                     .Subscribe(coll =>
                     {
                         var mov = player.GetComponent<FishyMovementComponent>();
-                        mov.Acceleration = new Vector2(-1000, 1000);
+                        mov.AddForce((component.transform.position - mov.transform.position) * component.Multiplier);
                     })
                     .AddTo(component);
             })

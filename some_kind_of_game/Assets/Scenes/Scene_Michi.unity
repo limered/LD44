@@ -120,18 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &64297874 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 64297874, guid: ebbb71322480447ea83d64b1b5138b20,
-    type: 3}
-  m_PrefabInstance: {fileID: 3407100649649233585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7034bd327404c4494b97d7031df69e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &86226189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5423,12 +5411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 1
   BounceCollider: {fileID: 695450708}
---- !u!4 &1205205603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3407100648696423634, guid: ebbb71322480447ea83d64b1b5138b20,
-    type: 3}
-  m_PrefabInstance: {fileID: 3407100649649233585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1478060967
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,36 +5660,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5847042438616077709, guid: b3400dcaf5d179c459ccb297fb721957, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b3400dcaf5d179c459ccb297fb721957, type: 3}
---- !u!1 &1803754076
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1803754077}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1803754077
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803754076}
-  m_LocalRotation: {x: -0, y: -0, z: 0.08961973, w: 0.9959761}
-  m_LocalPosition: {x: 1.298, y: 0.576, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1205205603}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.283001}
 --- !u!1001 &1816286937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6783,26 +6735,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3407100649335665532, guid: ebbb71322480447ea83d64b1b5138b20,
-        type: 3}
-      propertyPath: ColliderObject
-      value: 
-      objectReference: {fileID: 1687151188}
-    - target: {fileID: 3407100649335665533, guid: ebbb71322480447ea83d64b1b5138b20,
-        type: 3}
-      propertyPath: Slots.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3407100649335665533, guid: ebbb71322480447ea83d64b1b5138b20,
-        type: 3}
-      propertyPath: Slots.Array.data[2].Component
-      value: 
-      objectReference: {fileID: 64297874}
-    - target: {fileID: 3407100648696423635, guid: ebbb71322480447ea83d64b1b5138b20,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbb71322480447ea83d64b1b5138b20, type: 3}
