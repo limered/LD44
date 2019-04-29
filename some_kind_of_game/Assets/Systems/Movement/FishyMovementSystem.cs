@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using SystemBase;
 using UniRx;
 using UniRx.Triggers;
@@ -34,11 +33,22 @@ namespace Systems.Movement
         {
             //if this crashes with NullReferenceException, the GameObject probably has no Brain-Component
             component.HandleInput(component);
+            HandleForces(component);
             ApplyFriction(component);
             Animate(component);
             CalculateCollisions(component);
             ApplyAnimationToModel(component);
             FixCollider(component);
+        }
+
+        private static void HandleForces(FishyMovementComponent component)
+        {
+            foreach (var force in component.Forces)
+            {
+                component.Acceleration += force * UnityEngine.Time.fixedDeltaTime;
+            }
+
+            component.Forces.Clear();
         }
 
         private static void CalculateCollisions(FishyMovementComponent component)
