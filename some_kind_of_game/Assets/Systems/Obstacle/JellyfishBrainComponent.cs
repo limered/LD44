@@ -31,7 +31,10 @@ namespace Systems.Obstacle
         public Collider2D Collider;
         public Collider2D GetCollider()
         {
-            return Collider ?? gameObject.GetComponentInChildren<Collider2D>();
+            if (Collider) return Collider;
+            var c = gameObject.GetComponent<Collider2D>();
+            if (c) return c;
+            return gameObject.GetComponentInChildren<Collider2D>();
         }
 
         public StateContext<JellyfishBrainComponent> StateContext = new StateContext<JellyfishBrainComponent>();
@@ -55,7 +58,6 @@ namespace Systems.Obstacle
 
             protected void ActivateMode()
             {
-                Debug.Log(this);
                 Jellyfish.Standing.SetActive(this is Standing);
                 Jellyfish.Swimming.SetActive(this is Swimming || this is SwimmingAway);
                 Jellyfish.Adhering.SetActive(this is Adhering);
