@@ -11,7 +11,7 @@ namespace Systems.Movement
     [GameSystem(typeof(Systems.Control.PlayerControlSystem))]
     public class FishyMovementSystem : GameSystem<FishyMovementComponent>
     {
-        private const float CollisionShell = 0.01f;
+        private const float CollisionShell = 0.05f;
         private const float MinGroundNormalY = 0.65f;
 
         public override void Register(FishyMovementComponent component)
@@ -49,7 +49,7 @@ namespace Systems.Movement
             var moveAlongGround = new Vector2(component.GroundNormal.y, -component.GroundNormal.x);
 
             CalculateCollisionAnswer(moveAlongGround * deltaPosition.x, component, rb2D, false);
-            CalculateCollisionAnswer(Vector2.up * deltaPosition.y, component, rb2D, false);
+            CalculateCollisionAnswer(Vector2.up * deltaPosition.y, component, rb2D, true);
         }
 
         private static void CalculateCollisionAnswer(
@@ -111,7 +111,6 @@ namespace Systems.Movement
             var positionChange = component.Velocity * UnityEngine.Time.fixedDeltaTime;
 
             var rb2D = component.GetComponent<Rigidbody2D>();
-
             rb2D.position = new Vector3(rb2D.position.x + positionChange.x, rb2D.position.y + positionChange.y);
         }
 

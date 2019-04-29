@@ -1,4 +1,5 @@
 ﻿using UniRx;
+using UnityEngine;
 
 namespace SystemBase.StateMachineBase
 {
@@ -30,6 +31,8 @@ namespace SystemBase.StateMachineBase
             CurrentState.Value.Enter(this);
 
             AfterStateChange.Execute(state);
+
+            Debug.LogWarning("State: " + state.GetType());
 
             return true;
         }

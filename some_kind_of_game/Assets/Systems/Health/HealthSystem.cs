@@ -22,6 +22,11 @@ namespace Systems.Health
                 .Subscribe(add => add.ComponentToChange.CurrentHealth.Value += add.Value)
                 .AddTo(component);
 
+            MessageBroker.Default.Receive<HealthActSet>()
+                .Where(subtract => subtract.ComponentToChange == component)
+                .Subscribe(set => set.ComponentToChange.CurrentHealth.Value = set.Value)
+                .AddTo(component);
+
             MessageBroker.Default.Receive<HealthActReset>()
                 .Where(subtract => subtract.ComponentToChange == component)
                 .Subscribe(reset => reset.ComponentToChange.CurrentHealth.Value = reset.ComponentToChange.MaxHealth)

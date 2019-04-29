@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5798871065002108807}
   - component: {fileID: 7897071432946344118}
   - component: {fileID: 1749434445}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 554839235563953601}
   - component: {fileID: 5428564785277677582}
   - component: {fileID: 1704178627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: whale_flosse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 53704683}
   - component: {fileID: 53704680}
   - component: {fileID: 53704681}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Whale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5418579163514396426}
   - component: {fileID: 7019278313087789083}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

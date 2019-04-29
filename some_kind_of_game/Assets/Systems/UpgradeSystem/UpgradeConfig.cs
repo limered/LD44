@@ -11,6 +11,6 @@ namespace Systems.UpgradeSystem
         public Sprite ActiveThumbnail;
         public Sprite InactiveThumbnail;
         public int PriceInSeconds;
-        public BoolReactiveProperty IsAdded;
+        public BoolReactiveProperty IsAdded = new BoolReactiveProperty(false);
     }
 }
