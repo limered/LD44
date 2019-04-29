@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SystemBase;
 using Systems.Movement.Modifier;
@@ -14,6 +15,7 @@ namespace Systems.Movement
         public Vector2 MaxSpeedDefault;
         public float BackwardFrictionFactorDefault;
         public Action<FishyMovementComponent> HandleInput;
+        public List<Vector2> Forces = new List<Vector2>();
         public GameObject ColliderObject;
         public Vector2 Acceleration { get; set; }
 
@@ -36,5 +38,10 @@ namespace Systems.Movement
 
         [NonSerialized]
         public ReactiveCommand<RaycastHit2D[]> CollisionDetected = new ReactiveCommand<RaycastHit2D[]>();
+
+        public void AddForce(Vector2 force)
+        {
+            Forces.Add(force);
+        }
     }
 }
