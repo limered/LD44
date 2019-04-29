@@ -1,12 +1,48 @@
 fileFormatVersion: 2
 guid: c59fcbfb4640a0d4b803b1d96cee163d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2509776611380831064
+    second: upgrades_sign_0
+  - first:
+      213: 7540177949542782106
+    second: upgrades_sign_1
+  - first:
+      213: -6037897291926135629
+    second: upgrades_sign_2
+  - first:
+      213: 1253491986147496748
+    second: upgrades_sign_3
+  - first:
+      213: 4482929620023429062
+    second: upgrades_sign_4
+  - first:
+      213: 2876546413143805400
+    second: upgrades_sign_5
+  - first:
+      213: -7771707750118267414
+    second: upgrades_sign_6
+  - first:
+      213: 9010916346065382681
+    second: upgrades_sign_7
+  - first:
+      213: 849892088602675003
+    second: upgrades_sign_8
+  - first:
+      213: 75884093731733007
+    second: upgrades_sign_9
+  - first:
+      213: 8477242547995785366
+    second: upgrades_sign_10
+  - first:
+      213: 3399499141321400249
+    second: upgrades_sign_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,13 +70,13 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,9 +85,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -69,13 +105,298 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: upgrades_sign_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2391
+        width: 256
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287535e279d944f68af9bd57665d3387
+      internalID: -2509776611380831064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2182
+        width: 232
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eac4b0b14fcf46b0abe16616ca6a5c4
+      internalID: 7540177949542782106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1954
+        width: 231
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b08ee33620e4f2e9b9779844bbf514
+      internalID: -6037897291926135629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1755
+        width: 233
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0138dfc856e04ebd9c1422df0b9c8de
+      internalID: 1253491986147496748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1516
+        width: 231
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc436e98212e480e84c4a98a50f2100
+      internalID: 4482929620023429062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_5
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1311
+        width: 231
+        height: 178
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eebb5aab29814fb4816a4e5b6c9df5d
+      internalID: 2876546413143805400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1084
+        width: 231
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decbe4a0c95e94619ab044b93ef37a4c
+      internalID: -7771707750118267414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_7
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 880
+        width: 231
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af336736bb77e4271bbe33fd72e21ce0
+      internalID: 9010916346065382681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 638
+        width: 231
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e02b5ef3bbd47ceac83d964ed02396
+      internalID: 849892088602675003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 429
+        width: 256
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94cd5b011f004204a7fdab5f958c318
+      internalID: 75884093731733007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 221
+        width: 232
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a719922b1082b47f980fa3f608e8a9c6
+      internalID: 8477242547995785366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrades_sign_11
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 231
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24152c36157d428da758f3ea1c687f6
+      internalID: 3399499141321400249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: af425da7af19d4e95a499f6f7420902b
     internalID: 0
     vertices: []
     indices: 
