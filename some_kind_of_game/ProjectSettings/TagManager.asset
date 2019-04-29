@@ -44,6 +44,9 @@ TagManager:
   - name: Background
     uniqueID: 1518814109
     locked: 0
+  - name: Behind Fish
+    uniqueID: 365266649
+    locked: 0
   - name: Fin
     uniqueID: 4014631501
     locked: 0
@@ -58,4 +61,7 @@ TagManager:
     locked: 0
   - name: On Fish Skin
     uniqueID: 2633375779
+    locked: 0
+  - name: In front of fisch
+    uniqueID: 688725049
     locked: 0
