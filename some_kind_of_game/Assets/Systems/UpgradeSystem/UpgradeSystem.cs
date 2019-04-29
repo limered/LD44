@@ -44,6 +44,8 @@ namespace Systems.UpgradeSystem
                     throw new ArgumentException("Undefined Type for Upgrade");
                 case UpgradeType.Rotor:
                     return typeof(RotorComponent);
+                case UpgradeType.Delfin:
+                    return typeof(DelfinComponent);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

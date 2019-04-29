@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpgradeConfigs:
-  - UpgradeType: 1
-    ActiveThumbnail: {fileID: 21300000, guid: b28afc1a47bdbc748a6bdbccf8baab16, type: 3}
-    InactiveThumbnail: {fileID: 21300000, guid: df39833cdea94a8499b77567b152b51a,
+  - UpgradeType: 5
+    ActiveThumbnail: {fileID: 21300000, guid: 2e3531a6ba626d6409db3cff53c4a4a8, type: 3}
+    InactiveThumbnail: {fileID: 21300000, guid: 0c368fe88847e6046bd2a8e49549a8e5,
       type: 3}
-    PriceInSeconds: 5
+    PriceInSeconds: 10
     IsAdded:
       value: 0
   - UpgradeType: 2

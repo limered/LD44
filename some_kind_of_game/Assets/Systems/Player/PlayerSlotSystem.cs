@@ -65,6 +65,7 @@ namespace Systems.Player
                 case UpgradeType.LaserEye: return "Eye";
                 case UpgradeType.Uzi: return "Mouth";
                 case UpgradeType.Sunglasses: return "Head";
+                case UpgradeType.Delfin: return "Sidefin";
                 default: return "Default";
             }
         }
@@ -77,6 +78,7 @@ namespace Systems.Player
                 case UpgradeType.LaserEye: return "Laser";
                 case UpgradeType.Uzi: return "Uzi";
                 case UpgradeType.Sunglasses: return "Sunglasses";
+                case UpgradeType.Delfin: return "Delfin";
                 default: return "Default";
             }
         }
