@@ -2,14 +2,15 @@ using System;
 using SystemBase;
 using Systems.Animation;
 using Systems.Control;
+using Systems.Movement;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 
 namespace Systems.Obstacle
 {
-    [GameSystem]
-    public class FishBrainSystem : GameSystem<BlowFishBrainComponent>
+    [GameSystem(typeof(FishyMovementSystem))]
+    public class FishBrainSystem : GameSystem<BlowFishBrainComponent, TrashBrainComponent>
     {
         public override void Register(BlowFishBrainComponent component)
         {
@@ -25,6 +26,20 @@ namespace Systems.Obstacle
                     animation.Shrink();
                 })
                 .AddTo(component);
+        }
+
+        public override void Register(TrashBrainComponent component)
+        {
+            component.GetComponent<FishyMovementComponent>().HandleInput = TrashyMovement;
+        }
+
+        private void TrashyMovement(FishyMovementComponent obj)
+        {
+            var brain = obj.GetComponent<TrashBrainComponent>();
+
+            var horizontal = Mathf.Sin(UnityEngine.Time.realtimeSinceStartup * brain.Multiplier);
+            obj.ForwardVector = brain.Direction;
+            obj.Acceleration = new Vector2(horizontal * obj.ForwardVector.x * obj.AccelerationFactor.x, obj.ForwardVector.y * obj.AccelerationFactor.y);
         }
     }
 }
