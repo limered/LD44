@@ -14,6 +14,12 @@ namespace Systems
     {
         public readonly StateContext<Game> GameStateContext = new StateContext<Game>();
 
+        [ContextMenu("Start Game")]
+        public void StartGame()
+        {
+            MessageBroker.Default.Publish(new GameMsgStart());
+        }
+
         private void Awake()
         {
             IoC.RegisterSingleton(this);
@@ -33,7 +39,7 @@ namespace Systems
         {
             base.Init();
 
-            IoC.RegisterSingleton<ISFXComparer>(()=> new SFXComparer());
+            IoC.RegisterSingleton<ISFXComparer>(() => new SFXComparer());
         }
     }
 }

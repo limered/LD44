@@ -17,6 +17,7 @@ namespace Systems.Obstacle
             var collider = component.BlowUpCollider;
             var animation = component.GetComponent<BlowFishAnimationComponent>();
 
+            //Grow when in range, then Shrink after some time
             collider.OnTriggerStay2DAsObservable()
                 .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
                 .Do(_ => animation.Grow())
@@ -26,6 +27,16 @@ namespace Systems.Obstacle
                     animation.Shrink();
                 })
                 .AddTo(component);
+
+
+            //enable bounce collider
+            component.BounceCollider.gameObject.SetActive(false);
+            animation.Context.AfterStateChange
+            .Subscribe(state =>
+            {
+                component.BounceCollider.gameObject.SetActive(state is Animation.BlowFishState.Growing);
+            })
+            .AddTo(component);
         }
 
         public override void Register(TrashBrainComponent component)
