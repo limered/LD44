@@ -4,6 +4,7 @@ using Systems.GameState.Messages;
 using Systems.Health;
 using Systems.Health.Actions;
 using Systems.UpgradeSystem;
+using StrongSystems.Audio;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,12 +90,14 @@ namespace Systems.Shop
         {
             _selectedUpgrade.Value.IsAdded.Value = true;
             _internalHealthValue.Value -= _selectedUpgrade.Value.PriceInSeconds;
+            "SellBuy".Play();
         }
 
         private void SellButtonClicked()
         {
             _selectedUpgrade.Value.IsAdded.Value = false;
             _internalHealthValue.Value += _selectedUpgrade.Value.PriceInSeconds;
+            "SellBuy".Play();
         }
 
         private void ContinueButtonClicked()
