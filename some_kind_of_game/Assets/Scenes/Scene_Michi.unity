@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 58168219}
   - component: {fileID: 58168220}
   m_Layer: 0
-  m_Name: Moving
+  m_Name: Swimming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5339,6 +5339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639150493}
+  - component: {fileID: 639150494}
   m_Layer: 0
   m_Name: Size
   m_TagString: Untagged
@@ -5363,6 +5364,22 @@ Transform:
   m_Father: {fileID: 675239504}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &639150494
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639150492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 9.19, y: 13.74}
+  m_Direction: 0
 --- !u!1 &675239503
 GameObject:
   m_ObjectHideFlags: 0
@@ -5372,6 +5389,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 675239504}
+  - component: {fileID: 675239505}
+  - component: {fileID: 675239506}
+  - component: {fileID: 675239507}
   m_Layer: 0
   m_Name: Jellyfish
   m_TagString: Untagged
@@ -5387,13 +5407,68 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675239503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.14, y: -21.53, z: 0}
+  m_LocalPosition: {x: 72.31, y: -25.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 639150493}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &675239505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675239503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4383cc90fa3c54ebbb54d32a327bc878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplier: 1
+  Direction: {x: -1, y: 0}
+  Standing: {fileID: 1902824864}
+  Swimming: {fileID: 58168218}
+  Adhering: {fileID: 623882016}
+  Collider: {fileID: 0}
+--- !u!114 &675239506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675239503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab313844899744139d85341b8cbfd620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AccelerationDefault: {x: 1, y: 5}
+  MaxSpeedDefault: {x: 10, y: 20}
+  BackwardFrictionFactorDefault: 1
+  ColliderObject: {fileID: 0}
+--- !u!50 &675239507
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675239503}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &706065990
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Systems.Movement
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class FishyMovementComponent : GameComponent
     {
         public Vector2 AccelerationDefault;

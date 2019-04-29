@@ -40,7 +40,7 @@ namespace Utils.Plugins
             });
         }
 
-        public static IObservable<T> LogOnNext<T>(this IObservable<T> obs, string format = null, LogLevel level = LogLevel.Info)
+        public static IObservable<T> LogOnNext<T>(this IObservable<T> obs, string format = "{0}", LogLevel level = LogLevel.Info)
         {
             return obs.Do(t =>
             {
