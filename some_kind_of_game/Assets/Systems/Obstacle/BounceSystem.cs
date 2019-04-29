@@ -30,7 +30,7 @@ namespace Systems.Obstacle
                     var mov = coll.attachedRigidbody.GetComponent<FishyMovementComponent>();
                     if (mov)
                     {
-                        mov.AddForce((mov.transform.position - component.transform.position).normalized * component.Multiplier);
+                        mov.AddForce(mov.Velocity.magnitude * (mov.transform.position - component.transform.position).normalized * component.Multiplier);
                     }
                 })
                 .AddTo(component);

@@ -5409,7 +5409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e389bb55471c40bfa7e4dd8f4cf9ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 80000
+  Multiplier: 100
   BounceCollider: {fileID: 695450708}
 --- !u!1 &1478060967
 GameObject:
