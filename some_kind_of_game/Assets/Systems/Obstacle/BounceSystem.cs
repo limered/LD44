@@ -22,7 +22,6 @@ namespace Systems.Obstacle
 
         public override void Register(BounceComponent component)
         {
-
             component.BounceCollider
                 .OnTriggerEnter2DAsObservable()
                 .Subscribe(coll =>

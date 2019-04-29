@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1815647742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815647744}
+  - component: {fileID: 1815647743}
+  m_Layer: 10
+  m_Name: bounce
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1815647744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815647742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2254680781872028686}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1815647743
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815647742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.79, y: 0}
+  m_Size: {x: 12.77, y: 11.02}
+  m_Direction: 1
 --- !u!1 &2254680781237500030
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +177,8 @@ GameObject:
   - component: {fileID: 1348103608}
   - component: {fileID: 1348103606}
   - component: {fileID: 1348103607}
-  - component: {fileID: 1348103611}
+  - component: {fileID: 877434957}
+  - component: {fileID: 877434965}
   m_Layer: 10
   m_Name: BlowFish
   m_TagString: Untagged
@@ -151,6 +199,7 @@ Transform:
   m_Children:
   - {fileID: 2254680782663233781}
   - {fileID: 2254680781531673610}
+  - {fileID: 1815647744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -183,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlowUpCollider: {fileID: 2254680781872028680}
+  BounceCollider: {fileID: 1815647743}
 --- !u!114 &2254680781872028681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +298,7 @@ MonoBehaviour:
   MaxSpeedDefault: {x: 5, y: 5}
   BackwardFrictionFactorDefault: 1
   ColliderObject: {fileID: 0}
---- !u!70 &1348103611
+--- !u!70 &877434957
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,9 +311,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 13, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0.17, y: 0}
+  m_Size: {x: 5.55, y: 1.97}
+  m_Direction: 1
+--- !u!114 &877434965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e389bb55471c40bfa7e4dd8f4cf9ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplier: 10000
+  BounceCollider: {fileID: 1815647743}
 --- !u!1 &2254680782015368674
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2254680782480950529
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2254680782954950531
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2254680783156953354
 Transform:
   m_ObjectHideFlags: 0

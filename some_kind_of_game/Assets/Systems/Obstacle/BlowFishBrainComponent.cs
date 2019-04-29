@@ -13,6 +13,7 @@ namespace Systems.Obstacle
     public class BlowFishBrainComponent : GameComponent
     {
         public Collider2D BlowUpCollider;
+        public Collider2D BounceCollider;
     }
 
 }
