@@ -146,9 +146,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2391
-        width: 256
-        height: 175
+        y: 2692
+        width: 257
+        height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,7 +156,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 287535e279d944f68af9bd57665d3387
+      spriteID: 7f5a48aa74183414fab22b4a5abe00ef
       internalID: -2509776611380831064
       vertices: []
       indices: 
@@ -166,10 +166,10 @@ TextureImporter:
       name: upgrades_sign_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 2182
-        width: 232
-        height: 177
+        x: 0
+        y: 2447
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eac4b0b14fcf46b0abe16616ca6a5c4
+      spriteID: e4e174025a84a42a58cded73a82c8412
       internalID: 7540177949542782106
       vertices: []
       indices: 
@@ -187,10 +187,10 @@ TextureImporter:
       name: upgrades_sign_2
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1954
-        width: 231
-        height: 177
+        x: 0
+        y: 2202
+        width: 257
+        height: 198
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,7 +198,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83b08ee33620e4f2e9b9779844bbf514
+      spriteID: f38fdaed5ddad4a72ba3ad02797ebe4f
       internalID: -6037897291926135629
       vertices: []
       indices: 
@@ -208,10 +208,10 @@ TextureImporter:
       name: upgrades_sign_3
       rect:
         serializedVersion: 2
-        x: 14
-        y: 1755
-        width: 233
-        height: 176
+        x: 0
+        y: 1957
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,7 +219,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0138dfc856e04ebd9c1422df0b9c8de
+      spriteID: 104ebd075749f41d5b4c7e3c080c81a2
       internalID: 1253491986147496748
       vertices: []
       indices: 
@@ -229,10 +229,10 @@ TextureImporter:
       name: upgrades_sign_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1516
-        width: 231
-        height: 176
+        x: 0
+        y: 1713
+        width: 257
+        height: 198
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,7 +240,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cc436e98212e480e84c4a98a50f2100
+      spriteID: 1f57a0320103c45148197887e2e94c70
       internalID: 4482929620023429062
       vertices: []
       indices: 
@@ -250,10 +250,10 @@ TextureImporter:
       name: upgrades_sign_5
       rect:
         serializedVersion: 2
-        x: 13
-        y: 1311
-        width: 231
-        height: 178
+        x: 0
+        y: 1468
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,7 +261,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5eebb5aab29814fb4816a4e5b6c9df5d
+      spriteID: 19495c14300664b50bc9309f7aad6047
       internalID: 2876546413143805400
       vertices: []
       indices: 
@@ -271,10 +271,10 @@ TextureImporter:
       name: upgrades_sign_6
       rect:
         serializedVersion: 2
-        x: 18
-        y: 1084
-        width: 231
-        height: 177
+        x: 0
+        y: 1223
+        width: 257
+        height: 198
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,7 +282,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: decbe4a0c95e94619ab044b93ef37a4c
+      spriteID: 78ac4f4ae8c424cc3b007929f9213e49
       internalID: -7771707750118267414
       vertices: []
       indices: 
@@ -292,10 +292,10 @@ TextureImporter:
       name: upgrades_sign_7
       rect:
         serializedVersion: 2
-        x: 23
-        y: 880
-        width: 231
-        height: 177
+        x: 0
+        y: 978
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,7 +303,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af336736bb77e4271bbe33fd72e21ce0
+      spriteID: 1fa47b5636e734b76ae3e53cf2ec3a42
       internalID: 9010916346065382681
       vertices: []
       indices: 
@@ -313,10 +313,10 @@ TextureImporter:
       name: upgrades_sign_8
       rect:
         serializedVersion: 2
-        x: 23
-        y: 638
-        width: 231
-        height: 177
+        x: 0
+        y: 733
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,7 +324,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84e02b5ef3bbd47ceac83d964ed02396
+      spriteID: c0aa66b6e3216436c93d83de122b3654
       internalID: 849892088602675003
       vertices: []
       indices: 
@@ -335,9 +335,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 429
-        width: 256
-        height: 177
+        y: 489
+        width: 257
+        height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,7 +345,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b94cd5b011f004204a7fdab5f958c318
+      spriteID: 293ff6e858c7b4af48d9d16538a9ac29
       internalID: 75884093731733007
       vertices: []
       indices: 
@@ -355,10 +355,10 @@ TextureImporter:
       name: upgrades_sign_10
       rect:
         serializedVersion: 2
-        x: 18
-        y: 221
-        width: 232
-        height: 177
+        x: 0
+        y: 243
+        width: 257
+        height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,7 +366,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a719922b1082b47f980fa3f608e8a9c6
+      spriteID: 0b51ff5b145b54904a5f4d94a4bbe46f
       internalID: 8477242547995785366
       vertices: []
       indices: 
@@ -376,10 +376,10 @@ TextureImporter:
       name: upgrades_sign_11
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 231
-        height: 175
+        width: 257
+        height: 197
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,7 +387,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e24152c36157d428da758f3ea1c687f6
+      spriteID: 5cb834f82f7ec45158d9c1a4322cd22c
       internalID: 3399499141321400249
       vertices: []
       indices: 
