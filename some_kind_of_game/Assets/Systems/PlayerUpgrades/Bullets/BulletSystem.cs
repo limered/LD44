@@ -17,7 +17,7 @@ namespace Systems.PlayerUpgrades.Bullets
             rb2D.velocity = component.StartVelocity;
 
             component.OnCollisionEnter2DAsObservable()
-                .Subscribe(d => BulletHit(d, component))
+                .Subscribe(BulletHit)
                 .AddTo(component);
 
             Observable.Timer(TimeSpan.FromSeconds(2))
@@ -25,7 +25,7 @@ namespace Systems.PlayerUpgrades.Bullets
                 .AddTo(component);
         }
 
-        private void BulletHit(Collision2D collider, BulletComponent component)
+        private void BulletHit(Collision2D collider)
         {
             if (collider.gameObject.GetComponent<AffectedByBullet>())
             {
