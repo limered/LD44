@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 1348103607}
   - component: {fileID: 877434957}
   - component: {fileID: 877434965}
+  - component: {fileID: -2454466144215954560}
   m_Layer: 10
   m_Name: BlowFish
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Multiplier: 10000
   BounceCollider: {fileID: 1815647743}
+--- !u!114 &-2454466144215954560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254680781872028685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb49f52948c4673b5b0cf2e3a0b9451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2254680782015368674
 GameObject:
   m_ObjectHideFlags: 0
