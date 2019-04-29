@@ -12,7 +12,7 @@ namespace Systems.Obstacle
     [RequireComponent(typeof(BlowFishAnimationComponent))]
     public class BlowFishBrainComponent : GameComponent
     {
-       
+        public Collider2D BlowUpCollider;
     }
 
 }

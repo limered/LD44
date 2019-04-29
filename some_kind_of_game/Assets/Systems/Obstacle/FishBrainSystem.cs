@@ -1,24 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using SystemBase;
-using UnityEngine;
+using Systems.Animation;
+using Systems.Control;
+using Systems.Movement;
 using UniRx;
 using UniRx.Triggers;
-using UniRx.Operators;
-using Systems.Animation;
+using UnityEngine;
 
 namespace Systems.Obstacle
 {
-    [GameSystem]
-    public class FishBrainSystem : GameSystem<BlowFishBrainComponent>
+    [GameSystem(typeof(FishyMovementSystem))]
+    public class FishBrainSystem : GameSystem<BlowFishBrainComponent, TrashBrainComponent>
     {
         public override void Register(BlowFishBrainComponent component)
         {
-            var collider = component.GetComponent<Collider2D>();
+            var collider = component.BlowUpCollider;
             var animation = component.GetComponent<BlowFishAnimationComponent>();
 
             collider.OnTriggerStay2DAsObservable()
+                .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
                 .Do(_ => animation.Grow())
                 .Throttle(TimeSpan.FromSeconds(5))
                 .Subscribe(_ =>
@@ -26,8 +26,20 @@ namespace Systems.Obstacle
                     animation.Shrink();
                 })
                 .AddTo(component);
+        }
 
+        public override void Register(TrashBrainComponent component)
+        {
+            component.GetComponent<FishyMovementComponent>().HandleInput = TrashyMovement;
+        }
+
+        private void TrashyMovement(FishyMovementComponent obj)
+        {
+            var brain = obj.GetComponent<TrashBrainComponent>();
+
+            var horizontal = Mathf.Sin(UnityEngine.Time.realtimeSinceStartup * brain.Multiplier);
+            obj.ForwardVector = brain.Direction;
+            obj.Acceleration = new Vector2(horizontal * obj.ForwardVector.x * obj.AccelerationFactor.x, obj.ForwardVector.y * obj.AccelerationFactor.y);
         }
     }
-
 }

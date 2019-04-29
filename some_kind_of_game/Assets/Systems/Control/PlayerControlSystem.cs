@@ -17,11 +17,11 @@ namespace Systems.Control
 
         private static void HandlePlayerInput(FishyMovementComponent component)
         {
-            if (IoC.Game.GameStateContext.CurrentState.Value.GetType() != typeof(Running))
-            {
-                component.Acceleration = Vector2.zero;
-                return;
-            }
+            //if (IoC.Game.GameStateContext.CurrentState.Value.GetType() != typeof(Running))
+            //{
+            //    component.Acceleration = Vector2.zero;
+            //    return;
+            //}
 
             float x = 0;
             float y = 0;
