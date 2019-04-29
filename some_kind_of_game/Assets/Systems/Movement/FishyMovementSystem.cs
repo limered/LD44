@@ -43,12 +43,8 @@ namespace Systems.Movement
 
         private static void HandleForces(FishyMovementComponent component)
         {
-            foreach (var force in component.Forces)
-            {
-                component.Acceleration += force * UnityEngine.Time.fixedDeltaTime;
-            }
-
-            component.Forces.Clear();
+            component.Acceleration += component.Forces * UnityEngine.Time.fixedDeltaTime;
+            component.Forces = Vector2.zero;
         }
 
         private static void CalculateCollisions(FishyMovementComponent component)
