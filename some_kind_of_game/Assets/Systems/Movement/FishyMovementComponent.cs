@@ -15,7 +15,7 @@ namespace Systems.Movement
         public Vector2 MaxSpeedDefault;
         public float BackwardFrictionFactorDefault;
         public Action<FishyMovementComponent> HandleInput;
-        public List<Vector2> Forces = new List<Vector2>();
+        public Vector2 Forces { get; set; } = Vector2.zero;
         public GameObject ColliderObject;
         public Vector2 Acceleration { get; set; }
 
@@ -41,7 +41,7 @@ namespace Systems.Movement
 
         public void AddForce(Vector2 force)
         {
-            Forces.Add(force);
+            Forces += force;
         }
     }
 }
