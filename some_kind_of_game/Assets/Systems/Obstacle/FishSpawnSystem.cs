@@ -1,13 +1,16 @@
-﻿using SystemBase;
+﻿using System;
+using SystemBase;
 using Systems.Control;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Systems.Obstacle
 {
     [GameSystem]
-    public class FishSpawnSystem : GameSystem<FishSpawnerComponent>
+    public class FishSpawnSystem : GameSystem<FishSpawnerComponent, IntervalSpawnerComponent>
     {
         public override void Register(FishSpawnerComponent component)
         {
@@ -15,12 +18,12 @@ namespace Systems.Obstacle
             {
                 component.TriggerOverwrite.OnTriggerEnter2DAsObservable()
                     .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
-                    .Subscribe(d => SpawnFish(component))
+                    .Subscribe(d => SpawnPrefab(component))
                     .AddTo(component);
             }
             else if (component.Room)
             {
-                component.Room.OnEnteredRoom.Subscribe(d => SpawnFish(component)).AddTo(component);
+                component.Room.OnEnteredRoom.Subscribe(d => SpawnPrefab(component)).AddTo(component);
             }
             else
             {
@@ -28,7 +31,7 @@ namespace Systems.Obstacle
             }
         }
 
-        private void SpawnFish(FishSpawnerComponent component)
+        private void SpawnPrefab(FishSpawnerComponent component)
         {
             var rnd = Random.value * component.SpawnPrefabs.Length;
             Object.Instantiate(
@@ -36,6 +39,18 @@ namespace Systems.Obstacle
                     component.transform.position, 
                     component.transform.rotation, 
                     component.transform);
+        }
+
+        public override void Register(IntervalSpawnerComponent component)
+        {
+            if (component.TriggerOverwrite)
+            {
+                component.TriggerOverwrite.OnTriggerStay2DAsObservable()
+                    .Where(d => d.attachedRigidbody.GetComponent<PlayerComponent>())
+                    .Sample(TimeSpan.FromSeconds(component.Interval))
+                    .Subscribe(d => SpawnPrefab(component))
+                    .AddTo(component);
+            }
         }
     }
 }
