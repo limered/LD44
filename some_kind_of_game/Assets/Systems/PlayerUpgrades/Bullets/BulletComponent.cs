@@ -1,12 +1,10 @@
 using SystemBase;
-using UniRx;
 using UnityEngine;
-using Utils.Plugins;
 
-namespace Systems.PlayerUpgrades.Bullet
+namespace Systems.PlayerUpgrades.Bullets
 {
     public class BulletComponent : GameComponent
     {
-        
+        public Vector2 StartVelocity;
     }
 }

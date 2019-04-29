@@ -1,9 +1,9 @@
+using System;
 using SystemBase;
 using Systems.Control;
-using Systems.Movement.Modifier;
 using UniRx;
 using UnityEngine;
-using Utils.Plugins;
+using Object = UnityEngine.Object;
 
 namespace Systems.PlayerUpgrades.Mouth
 {
@@ -19,7 +19,14 @@ namespace Systems.PlayerUpgrades.Mouth
 
         public override void Register(UziComponent component)
         {
-            
+            Observable.Interval(TimeSpan.FromMilliseconds(component.FireInterval))
+                .Subscribe(l => Shoot(component))
+                .AddTo(component);
+        }
+
+        private static void Shoot(UziComponent component)
+        {
+            Object.Instantiate(component.BulletPrefab, component.BulletSpawnPoint.transform.position, Quaternion.identity);
         }
     }
 }

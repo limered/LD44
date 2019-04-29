@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 724455491}
   - component: {fileID: 724455489}
   - component: {fileID: 724455490}
+  - component: {fileID: 2848081818416552361}
   m_Layer: 10
   m_Name: YellowFish
   m_TagString: Untagged
@@ -472,3 +473,15 @@ MonoBehaviour:
   MaxSpeedDefault: {x: 10, y: 2}
   BackwardFrictionFactorDefault: 1
   ColliderObject: {fileID: 0}
+--- !u!114 &2848081818416552361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756291309452877641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb49f52948c4673b5b0cf2e3a0b9451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
