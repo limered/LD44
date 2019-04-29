@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 2133680240}
   - component: {fileID: 2133680238}
   - component: {fileID: 2133680239}
+  - component: {fileID: -2528912395484973685}
   m_Layer: 10
   m_Name: GreenFish
   m_TagString: Untagged
@@ -261,6 +262,18 @@ MonoBehaviour:
   MaxSpeedDefault: {x: 20, y: 20}
   BackwardFrictionFactorDefault: 1
   ColliderObject: {fileID: 0}
+--- !u!114 &-2528912395484973685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817397409166380328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb49f52948c4673b5b0cf2e3a0b9451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8317785208578657579
 GameObject:
   m_ObjectHideFlags: 0

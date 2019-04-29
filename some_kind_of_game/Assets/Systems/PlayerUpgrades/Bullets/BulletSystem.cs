@@ -1,41 +1,37 @@
+using System;
 using SystemBase;
-using Systems.Control;
-using Systems.Movement.Modifier;
+using Systems.Movement;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
-using Utils.Plugins;
+using Object = UnityEngine.Object;
 
-namespace Systems.PlayerUpgrades.Bullet
+namespace Systems.PlayerUpgrades.Bullets
 {
-    [GameSystem(typeof(PlayerControlSystem))]
-    public class BulletSystem : GameSystem<PlayerComponent, BulletSpawnerComponent, BulletComponent>
+    [GameSystem]
+    public class BulletSystem : GameSystem<BulletComponent>
     {
-        private readonly ReactiveProperty<PlayerComponent> _player = new ReactiveProperty<PlayerComponent>(null);
-
-        public override void Register(PlayerComponent component)
-        {
-            _player.Value = component;
-        }
-
-        public override void Register(BulletSpawnerComponent component)
-        {
-            component.OnFire
-            .Subscribe(_ =>
-            {
-                var bullet = GameObject.Instantiate(
-                    component.BulletPrefab,
-                    component.transform.position,
-                    component.transform.rotation
-                );
-
-                var bulletCollider = bullet.GetComponent<BulletComponent>();
-            })
-            .AddTo(component);
-        }
-
         public override void Register(BulletComponent component)
         {
-            
+            var rb2D = component.GetComponent<Rigidbody2D>();
+            rb2D.velocity = component.StartVelocity;
+
+            component.OnCollisionEnter2DAsObservable()
+                .Subscribe(d => BulletHit(d, component))
+                .AddTo(component);
+
+            Observable.Timer(TimeSpan.FromSeconds(2))
+                .Subscribe(_ => Object.Destroy(component.gameObject))
+                .AddTo(component);
+        }
+
+        private void BulletHit(Collision2D collider, BulletComponent component)
+        {
+            if (collider.gameObject.GetComponent<AffectedByBullet>())
+            {
+                collider.gameObject.GetComponent<FishyMovementComponent>()
+                    .AddForce(new Vector2(10000, 10000));
+            }
         }
     }
 }

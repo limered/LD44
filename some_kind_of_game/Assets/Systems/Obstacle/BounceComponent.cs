@@ -5,15 +5,17 @@ using SystemBase;
 using UniRx;
 using UnityEngine;
 using Systems.Animation;
+using SystemBase.StateMachineBase;
+using UniRx.Triggers;
 
 namespace Systems.Obstacle
 {
-    [RequireComponent(typeof(Collider2D))]
-    [RequireComponent(typeof(BlowFishAnimationComponent))]
-    public class BlowFishBrainComponent : GameComponent
+    public class BounceComponent : GameComponent
     {
-        public Collider2D BlowUpCollider;
+        public float Multiplier = 10000;
+        [Header("can be set manually, otherwise fetched from children")]
         public Collider2D BounceCollider;
+
     }
 
 }
