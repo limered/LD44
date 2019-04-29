@@ -1,9 +1,9 @@
-﻿using System;
+﻿using GameState.States;
+using System;
 using SystemBase;
 using Systems.GameState.Messages;
 using Systems.Health.Events;
 using Systems.Movement;
-using GameState.States;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +27,12 @@ namespace Systems.Control
         private void EndGame(PlayerComponent component)
         {
             MessageBroker.Default.Publish(new GameMsgPause());
+            component.GetComponent<Rigidbody2D>().rotation = 180;
+
+            component.SelectItem("TailFin", "DeadTailFin");
+            component.SelectItem("Eye", "DeadEye");
+
+            component.GetComponent<FishyMovementComponent>().HandleInput = HandlePlayerDeadInput;
 
             Observable.Timer(TimeSpan.FromSeconds(3))
                 .Take(1)
@@ -36,13 +42,18 @@ namespace Systems.Control
                 });
         }
 
+        private void HandlePlayerDeadInput(FishyMovementComponent obj)
+        {
+            obj.Acceleration = new Vector2(0, 5);
+        }
+
         private static void HandlePlayerInput(FishyMovementComponent component)
         {
-            //if (IoC.Game.GameStateContext.CurrentState.Value.GetType() != typeof(Running))
-            //{
-            //    component.Acceleration = Vector2.zero;
-            //    return;
-            //}
+            if (IoC.Game.GameStateContext.CurrentState.Value.GetType() != typeof(Running))
+            {
+                component.Acceleration = Vector2.zero;
+                return;
+            }
 
             float x = 0;
             float y = 0;
@@ -65,7 +76,7 @@ namespace Systems.Control
             {
                 y = Vector2.down.y * component.AccelerationFactor.y;
             }
-            
+
             component.Acceleration = new Vector2(x, y);
         }
     }
