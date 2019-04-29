@@ -30,7 +30,12 @@ namespace Systems.Obstacle
 
         private void SpawnFish(FishSpawnerComponent component)
         {
-            Object.Instantiate(component.SopawnPrefab, component.transform.position, component.transform.rotation, component.transform);
+            var rnd = Random.value * component.SpawnPrefabs.Length;
+            Object.Instantiate(
+                    component.SpawnPrefabs[(int) rnd], 
+                    component.transform.position, 
+                    component.transform.rotation, 
+                    component.transform);
         }
     }
 }
