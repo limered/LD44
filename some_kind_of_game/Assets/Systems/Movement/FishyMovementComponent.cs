@@ -27,11 +27,6 @@ namespace Systems.Movement
         public Vector2 MaxSpeed => GetComponents<MaxSpeedModifier>()
             .Aggregate(MaxSpeedDefault, (current, modifier) => current + modifier.Summand);
 
-        public void AddForce(Vector2 force)
-        {
-            
-        }
-
         public float BackwardFrictionFactor => GetComponents<FrictionModifier>()
             .Aggregate(BackwardFrictionFactorDefault, (current, modifier) => current + modifier.Summand);
 

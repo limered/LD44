@@ -22,19 +22,18 @@ namespace Systems.Obstacle
 
         public override void Register(BounceComponent component)
         {
-            _player.WhereNotNull()
-            .Subscribe(player =>
-            {
-                component.BounceCollider
-                    .OnTriggerEnter2DAsObservable()
-                    .Subscribe(coll =>
+
+            component.BounceCollider
+                .OnTriggerEnter2DAsObservable()
+                .Subscribe(coll =>
+                {
+                    var mov = coll.attachedRigidbody.GetComponent<FishyMovementComponent>();
+                    if (mov)
                     {
-                        var mov = player.GetComponent<FishyMovementComponent>();
-                        mov.AddForce((component.transform.position - mov.transform.position) * component.Multiplier);
-                    })
-                    .AddTo(component);
-            })
-            .AddTo(component);
+                        mov.AddForce((mov.transform.position - component.transform.position).normalized * component.Multiplier);
+                    }
+                })
+                .AddTo(component);
         }
     }
 

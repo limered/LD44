@@ -12,7 +12,7 @@ namespace Systems.Obstacle
 {
     public class BounceComponent : GameComponent
     {
-        public float Multiplier = 10;
+        public float Multiplier = 10000;
         [Header("can be set manually, otherwise fetched from children")]
         public Collider2D BounceCollider;
 
