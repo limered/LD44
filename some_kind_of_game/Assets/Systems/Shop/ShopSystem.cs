@@ -3,6 +3,7 @@ using SystemBase;
 using Systems.GameState.Messages;
 using Systems.Health;
 using Systems.Health.Actions;
+using Systems.LevelTime;
 using Systems.UpgradeSystem;
 using StrongSystems.Audio;
 using UniRx;
@@ -13,7 +14,7 @@ using UnityEngine.UI;
 namespace Systems.Shop
 {
     [GameSystem(typeof(HealthSystem))]
-    public class ShopSystem : GameSystem<ShopComponent, UpgradeConfigComponent, HealthComponent>
+    public class ShopSystem : GameSystem<ShopComponent, UpgradeConfigComponent, HealthComponent, LevelTimerComponent>
     {
         private ShopComponent _shopComponent;
         private UpgradeConfigComponent _upgradeConfigComponent;
@@ -23,6 +24,7 @@ namespace Systems.Shop
         private Button _sellButton;
         private Button _continueButton;
         private HealthComponent _healthComponent;
+        private LevelTimerComponent _levelTimer;
 
         private readonly FloatReactiveProperty _internalHealthValue = new FloatReactiveProperty(0);
         private int ItemsToShow = 0;
@@ -31,7 +33,17 @@ namespace Systems.Shop
         {
             _shopComponent = component;
 
-            if (_healthComponent.CurrentHealth.Value > 0) ItemsToShow++;
+            if (_healthComponent.CurrentHealth.Value > 0)
+            {
+                if (component.BestTimeField)
+                {
+                    var seconds = (int) _levelTimer.LastBestTime;
+                    var hundreds = _levelTimer.LastBestTime - seconds * 10;
+                    component.BestTimeField.GetComponent<Text>().text = seconds + ":" + hundreds + "s";
+                }
+                ItemsToShow++;
+            }
+            
             FinishRegistration();
             MessageBroker.Default.Publish(new HealthActSet
             {
@@ -186,6 +198,11 @@ namespace Systems.Shop
         {
             return !_selectedUpgrade.Value.IsAdded.Value &&
                    _internalHealthValue.Value > _selectedUpgrade.Value.PriceInSeconds;
+        }
+
+        public override void Register(LevelTimerComponent component)
+        {
+            _levelTimer = component;
         }
     }
 }
