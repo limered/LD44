@@ -77,6 +77,11 @@ namespace Systems.Control
                 y = Vector2.down.y * component.AccelerationFactor.y;
             }
 
+            if (component.transform.position.y > 8 && y > 0)
+            {
+                y = -y;
+            }
+
             component.Acceleration = new Vector2(x, y);
         }
     }
