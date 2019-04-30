@@ -31,8 +31,6 @@ namespace Systems
             Init();
 
             MessageBroker.Default.Publish(new GameMsgFinishedLoading());
-            MessageBroker.Default.Publish(new GameMsgStart());
-
         }
 
         public override void Init()
