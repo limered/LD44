@@ -56,7 +56,7 @@ namespace Systems.Obstacle
             //adhere to Kailax when trigger is entered
             component.GetCollider()
             .OnTriggerEnter2DAsObservable()
-            .Where(c => c.attachedRigidbody.GetComponent<PlayerComponent>())
+            .Where(c => c.attachedRigidbody != null && c.attachedRigidbody.GetComponent<PlayerComponent>())
             .Select(_ => component.StateContext.CurrentState.Value)
             .Where(state => (state is Swimming || state is Standing))
             .Subscribe(_ =>
@@ -81,15 +81,15 @@ namespace Systems.Obstacle
                         slowModifier.Summand = component.SlowDownFriction;
 
                         onlyOne.Disposable = component.FixedUpdateAsObservable()
-                                        .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
-                                        .Where(x => component.StateContext.CurrentState.Value is Adhering)
-                                        .Subscribe(_ =>
-                                        {
-                                            component.gameObject.transform.position = player.gameObject.transform.position;
-                                        }, () =>
-                                        {
-                                            component.StateContext.GoToState(new SwimmingAway(component));
-                                        });
+                            .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
+                            .Where(x => component.StateContext.CurrentState.Value is Adhering)
+                            .Subscribe(_ =>
+                            {
+                                component.gameObject.transform.position = player.gameObject.transform.position;
+                            }, () =>
+                            {
+                                component.StateContext.GoToState(new SwimmingAway(component));
+                            });
                     }
                     else
                     {

@@ -2256,7 +2256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5223209016169307269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3085975575958986803}
@@ -3238,11 +3238,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3085975575958986803}
     m_Modifications:
-    - target: {fileID: 4751006003871617890, guid: bbf0adf82a393b44ba475af271cf90d7,
-        type: 3}
-      propertyPath: m_Name
-      value: Background
-      objectReference: {fileID: 0}
     - target: {fileID: 4751006003871617889, guid: bbf0adf82a393b44ba475af271cf90d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3297,6 +3292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751006003871617890, guid: bbf0adf82a393b44ba475af271cf90d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Background
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf0adf82a393b44ba475af271cf90d7, type: 3}

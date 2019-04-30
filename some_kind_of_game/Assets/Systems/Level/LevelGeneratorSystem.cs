@@ -26,7 +26,7 @@ namespace Systems.Level
                 Object.Instantiate(component.RoomPartPrefabs[(int)rnd], new Vector3(i * _partlength, 0, 0), Quaternion.identity,
                     component.transform);
             }
-            Object.Instantiate(component.FinishPrefab, new Vector3(component.PartsPerLevel * _partlength - 10, 0, 0), Quaternion.identity,
+            Object.Instantiate(component.FinishPrefab, new Vector3(component.PartsPerLevel * _partlength + 5, 0, 0), Quaternion.identity,
                 component.transform);
         }
 
