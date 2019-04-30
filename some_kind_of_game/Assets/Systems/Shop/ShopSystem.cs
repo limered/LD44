@@ -38,7 +38,7 @@ namespace Systems.Shop
                 if (component.BestTimeField)
                 {
                     var seconds = (int) _levelTimer.LastBestTime;
-                    var hundreds = _levelTimer.LastBestTime - seconds * 10;
+                    var hundreds = (int) ((_levelTimer.LastBestTime - seconds) * 100);
                     component.BestTimeField.GetComponent<Text>().text = seconds + ":" + hundreds + "s";
                 }
                 ItemsToShow++;

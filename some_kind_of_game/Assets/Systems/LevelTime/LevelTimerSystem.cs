@@ -28,6 +28,7 @@ namespace Systems.LevelTime
             component.LastBestTime = component.CurrentTime < component.LastBestTime 
                 ? component.CurrentTime 
                 : component.LastBestTime;
+            component.CurrentTime = 0;
         }
 
         private void StartTimer(LevelTimerComponent component)
