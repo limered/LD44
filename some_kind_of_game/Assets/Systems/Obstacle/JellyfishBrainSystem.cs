@@ -56,7 +56,7 @@ namespace Systems.Obstacle
             //adhere to Kailax when trigger is entered
             component.GetCollider()
             .OnTriggerEnter2DAsObservable()
-            .Where(c => c.attachedRigidbody.GetComponent<PlayerComponent>())
+            .Where(c => c.attachedRigidbody != null && c.attachedRigidbody.GetComponent<PlayerComponent>())
             .Select(_ => component.StateContext.CurrentState.Value)
             .Where(state => (state is Swimming || state is Standing))
             .Subscribe(_ =>
