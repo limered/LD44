@@ -1,27 +1,19 @@
 ﻿using UniRx;
+using UnityEngine;
 
 namespace SystemBase.StateMachineBase
 {
     public class StateContext<T> : IStateContext<BaseState<T>, T>
     {
-        private readonly ReactiveCommand<BaseState<T>> _afterStateChange;
-        private readonly ReactiveCommand<BaseState<T>> _bevoreStateChange;
-
         public StateContext()
         {
-            _bevoreStateChange = new ReactiveCommand<BaseState<T>>();
-            _afterStateChange = new ReactiveCommand<BaseState<T>>();
+            BevoreStateChange = new ReactiveCommand<BaseState<T>>();
+            AfterStateChange = new ReactiveCommand<BaseState<T>>();
         }
 
-        public ReactiveCommand<BaseState<T>> AfterStateChange
-        {
-            get { return _afterStateChange; }
-        }
+        public ReactiveCommand<BaseState<T>> AfterStateChange { get; }
 
-        public ReactiveCommand<BaseState<T>> BevoreStateChange
-        {
-            get { return _bevoreStateChange; }
-        }
+        public ReactiveCommand<BaseState<T>> BevoreStateChange { get; }
 
         public ReactiveProperty<BaseState<T>> CurrentState { get; private set; }
 
@@ -33,12 +25,12 @@ namespace SystemBase.StateMachineBase
                 return false;
             }
 
-            _bevoreStateChange.Execute(state);
+            BevoreStateChange.Execute(state);
 
             CurrentState.Value = state;
             CurrentState.Value.Enter(this);
 
-            _afterStateChange.Execute(state);
+            AfterStateChange.Execute(state);
 
             return true;
         }
@@ -46,7 +38,9 @@ namespace SystemBase.StateMachineBase
         public void Start(BaseState<T> initialState)
         {
             CurrentState = new ReactiveProperty<BaseState<T>>(initialState);
+            BevoreStateChange.Execute(CurrentState.Value);
             CurrentState.Value.Enter(this);
+            AfterStateChange.Execute(initialState);
         }
     }
 }

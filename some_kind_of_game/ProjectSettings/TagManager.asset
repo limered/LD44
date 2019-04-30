@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - Player
+  - Enemies
+  - SpawnTrigger
   - 
   - 
   - 
@@ -38,6 +38,39 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind Background
+    uniqueID: 4066200751
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Behind Sand
+    uniqueID: 2395893527
+    locked: 0
+  - name: Sand
+    uniqueID: 3286124821
+    locked: 0
+  - name: Background
+    uniqueID: 1518814109
+    locked: 0
+  - name: Behind Fish
+    uniqueID: 365266649
+    locked: 0
+  - name: Fin
+    uniqueID: 4014631501
+    locked: 0
+  - name: Fish Body
+    uniqueID: 1075185735
+    locked: 0
+  - name: Inside Mouth
+    uniqueID: 2145013981
+    locked: 0
+  - name: Kailax Mouth
+    uniqueID: 3408752661
+    locked: 0
+  - name: On Fish Skin
+    uniqueID: 2633375779
+    locked: 0
+  - name: In front of fisch
+    uniqueID: 688725049
     locked: 0

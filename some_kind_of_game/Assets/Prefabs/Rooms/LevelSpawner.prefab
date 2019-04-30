@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &272667385897892308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272667385897895466}
+  - component: {fileID: 272667385897892309}
+  m_Layer: 0
+  m_Name: LevelSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272667385897895466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272667385897892308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272667385897892309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272667385897892308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af72b1698be4654bdd944ab231727eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PartsPerLevel: 5
+  RoomPartPrefabs:
+  - {fileID: 3153787979119816154, guid: 0e7ce06846d93f743aead6cb02914b2a, type: 3}
+  - {fileID: 3153787979119816154, guid: 6f3794b992acaa64eb73bac02a94378e, type: 3}
+  - {fileID: 3153787979119816154, guid: 68a1702f89e797c4eb96dd93dcfed7fa, type: 3}
+  - {fileID: 3153787979119816154, guid: d84c266691f5d904f8e229fa77f5cfa0, type: 3}
+  - {fileID: 3153787979119816154, guid: cbd50bc53d2cbe24cb1be58acf2f4d7b, type: 3}
+  - {fileID: 3153787979119816154, guid: 2d4b39631c92d9a4ba63739192df4d23, type: 3}
+  - {fileID: 3153787979119816154, guid: 564a6edf87f9fa444abf9b2a65d04f5e, type: 3}
+  - {fileID: 3153787979119816154, guid: 32e909066c903b04aa7aeb425bb446e9, type: 3}
+  - {fileID: 3153787979119816154, guid: 985e86f9db720f74d9d979a66fd5e367, type: 3}
+  - {fileID: 3153787979119816154, guid: f4d18cbf7d4369f4c9c748bbfa80edea, type: 3}
+  - {fileID: 3153787979119816154, guid: 94a8066461868a74f815996070a723f4, type: 3}
+  - {fileID: 3153787979119816154, guid: b13986e0fa10a2143b5ef93263283972, type: 3}
+  - {fileID: 3153787979119816154, guid: a9fba5bf838a8674cb1ee1b6063698cc, type: 3}
+  - {fileID: 3153787979119816154, guid: 046c5a79ca80cc54d9c72ed595f37b5d, type: 3}
+  - {fileID: 3153787979119816154, guid: ca7fb00c3e3461b4a95a62283428875b, type: 3}
+  - {fileID: 3153787979119816154, guid: 2e556990557268147bfe81dfdb12f9a0, type: 3}
+  PlayerSpawnPrefab: {fileID: 6767753841640363692, guid: bc93bd2cec80a5e48a4e15d109348d8c,
+    type: 3}
+  FinishPrefab: {fileID: 3085975575958986800, guid: 856f2aabceda7494ca35ea6db7de6b18,
+    type: 3}
