@@ -58,6 +58,7 @@ namespace Systems.Obstacle
 
             protected void ActivateMode()
             {
+                if (!Jellyfish || !Jellyfish.Standing) return;
                 Jellyfish.Standing.SetActive(this is Standing);
                 Jellyfish.Swimming.SetActive(this is Swimming || this is SwimmingAway);
                 Jellyfish.Adhering.SetActive(this is Adhering);

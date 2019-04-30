@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e389bb55471c40bfa7e4dd8f4cf9ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplier: 10000
+  Multiplier: 5000
   BounceCollider: {fileID: 1815647743}
 --- !u!114 &-2454466144215954560
 MonoBehaviour:

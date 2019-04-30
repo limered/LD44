@@ -197,6 +197,16 @@ PrefabInstance:
       propertyPath: UpgradeConfigs.Array.data[2].IsAdded.value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2075845134006388068, guid: 018ace489b3812945a0ce17a98aa2d6a,
+        type: 3}
+      propertyPath: UpgradeConfigs.Array.data[0].PriceInSeconds
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075845134006388068, guid: 018ace489b3812945a0ce17a98aa2d6a,
+        type: 3}
+      propertyPath: UpgradeConfigs.Array.data[1].PriceInSeconds
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018ace489b3812945a0ce17a98aa2d6a, type: 3}
 --- !u!1 &143523055 stripped
@@ -1080,6 +1090,20 @@ MonoBehaviour:
   - Name: Music
     File: {fileID: 8300000, guid: 795b1c751940848428c50e0a1257015b, type: 3}
     Volume: 0.1
+--- !u!114 &1386566173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386566171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a6a20072ba3c349acc34eff2d43db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LastBestTime: 0
+  CurrentTime: 0
 --- !u!114 &1386566175
 MonoBehaviour:
   m_ObjectHideFlags: 0
