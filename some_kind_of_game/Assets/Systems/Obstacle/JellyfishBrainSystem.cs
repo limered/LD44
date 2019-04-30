@@ -81,15 +81,15 @@ namespace Systems.Obstacle
                         slowModifier.Summand = component.SlowDownFriction;
 
                         onlyOne.Disposable = component.FixedUpdateAsObservable()
-                                        .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
-                                        .Where(x => component.StateContext.CurrentState.Value is Adhering)
-                                        .Subscribe(_ =>
-                                        {
-                                            component.gameObject.transform.position = player.gameObject.transform.position;
-                                        }, () =>
-                                        {
-                                            component.StateContext.GoToState(new SwimmingAway(component));
-                                        });
+                            .TakeUntil(Observable.Timer(TimeSpan.FromSeconds(component.AdheringTime)))
+                            .Where(x => component.StateContext.CurrentState.Value is Adhering)
+                            .Subscribe(_ =>
+                            {
+                                component.gameObject.transform.position = player.gameObject.transform.position;
+                            }, () =>
+                            {
+                                component.StateContext.GoToState(new SwimmingAway(component));
+                            });
                     }
                     else
                     {
