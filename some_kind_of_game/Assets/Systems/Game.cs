@@ -2,11 +2,12 @@
 using SystemBase;
 using SystemBase.StateMachineBase;
 using Systems.GameState.Messages;
-using StrongSystems.Audio;
 using StrongSystems.Audio.Helper;
 using UniRx;
 using UnityEngine;
 using Utils;
+using UniRx.Triggers;
+using UnityEngine.SceneManagement;
 
 namespace Systems
 {
@@ -18,6 +19,7 @@ namespace Systems
         public void StartGame()
         {
             MessageBroker.Default.Publish(new GameMsgStart());
+            SceneManager.LoadScene("Level");
         }
 
         private void Awake()
@@ -31,6 +33,8 @@ namespace Systems
             Init();
 
             MessageBroker.Default.Publish(new GameMsgFinishedLoading());
+
+            GameStateContext.CurrentState.Where(state => state is StartScreen).Subscribe(_ => ListenToGameStartButtonPressed());
         }
 
         public override void Init()
@@ -38,6 +42,17 @@ namespace Systems
             base.Init();
 
             IoC.RegisterSingleton<ISFXComparer>(() => new SFXComparer());
+        }
+
+        private void ListenToGameStartButtonPressed()
+        {
+            this.UpdateAsObservable().Subscribe(_ =>
+            {
+                if (Input.GetButtonDown("Start"))
+                {
+                    StartGame();
+                }
+            });
         }
     }
 }

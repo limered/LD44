@@ -2,6 +2,7 @@
 using Systems;
 using Systems.GameState.Messages;
 using UniRx;
+using UnityEngine;
 
 namespace GameState.States
 {
@@ -11,7 +12,9 @@ namespace GameState.States
         public override void Enter(StateContext<Game> context)
         {
             MessageBroker.Default.Receive<GameMsgStart>()
-                .Subscribe(start => context.GoToState(new Running()))
+                .Subscribe(start => {
+                    context.GoToState(new Running());
+                    })
                 .AddTo(this);
         }
     }
